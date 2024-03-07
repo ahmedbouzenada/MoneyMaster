@@ -20,7 +20,8 @@ class ClientFactory extends Factory
             'firstname' => $this->faker->firstName,
             'lastname' => $this->faker->lastName,
             'email' => $this->faker->unique()->safeEmail,
-            'phone_number' => $this->faker->phoneNumber,
+            'phone_number' => '0' . random_int(5, 7) . $this->faker->numerify('########'),
+
         ];
     }
 }
