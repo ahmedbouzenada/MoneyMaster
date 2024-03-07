@@ -28,7 +28,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="date" class="font-weight-bold">Date</label>
-                                <input type="date" name="date" class="form-control" id="date" required>
+                                <input type="datetime-local" name="date" class="form-control" id="date"
+                                       value="{{\Illuminate\Support\Carbon::now()}}">
                             </div>
                             <div class="form-group">
                                 <label for="payment_method" class="font-weight-bold">Payment Method</label>

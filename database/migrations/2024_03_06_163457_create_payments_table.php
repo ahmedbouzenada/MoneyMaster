@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->decimal('amount', 10);
             $table->string('description')->nullable();
-            $table->date('date');
+            $table->datetime('date');
             $table->enum('payment_method', ['cash', 'credit_card', 'bank_transfer']);
             $table->uuid('reference_number');
             $table->foreignId('client_id')->constrained()->onDelete('cascade');

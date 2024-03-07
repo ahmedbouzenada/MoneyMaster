@@ -24,7 +24,7 @@ class StorePaymentRequest extends FormRequest
         return [
             'amount' => 'required|numeric',
             'description' => 'nullable|string|max:255',
-            'date' => 'required|date',
+            'date' => 'date',
             'client_id' => 'required|exists:clients,id',
             'payment_method' => 'required|in:cash,credit_card,bank_transfer',
         ];

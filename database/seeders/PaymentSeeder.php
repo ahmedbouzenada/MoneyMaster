@@ -13,6 +13,6 @@ class PaymentSeeder extends Seeder
      */
     public function run(): void
     {
-        Payment::factory(50)->create();
+        Payment::factory(30)->create();
     }
 }

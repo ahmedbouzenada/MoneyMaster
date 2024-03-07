@@ -42,7 +42,7 @@ class Payment extends Model
     protected function date(): Attribute
     {
         return Attribute::make(
-            get: fn(string $value) => Carbon::parse($value)->format('d F Y')
+            get: fn(string $value) => Carbon::parse($value)->format('d F Y H:i:s')
         );
     }
 }

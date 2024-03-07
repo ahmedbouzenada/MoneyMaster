@@ -37,8 +37,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="date" class="font-weight-bold">Date</label>
-                                <input type="date" name="date" class="form-control" id="date"
-                                       value="{{ \Illuminate\Support\Carbon::parse($payment->date)->format('Y-m-d') }}"
+                                <input type="datetime-local" name="date" class="form-control" id="date"
+                                       value="{{ \Illuminate\Support\Carbon::parse($payment->date)->format('Y-m-d\TH:i') }}"
                                        readonly>
                             </div>
                             <div class="form-group">
@@ -47,10 +47,12 @@
                                     <option value="cash" {{ $payment->payment_method === 'Cash' ? 'selected' : '' }}>
                                         Cash
                                     </option>
-                                    <option value="credit_card" {{ $payment->payment_method === 'Credit Card' ? 'selected' : '' }}>
+                                    <option
+                                            value="credit_card" {{ $payment->payment_method === 'Credit Card' ? 'selected' : '' }}>
                                         Credit Card
                                     </option>
-                                    <option value="bank_transfer" {{ $payment->payment_method === 'Bank Transfer' ? 'selected' : '' }}>
+                                    <option
+                                            value="bank_transfer" {{ $payment->payment_method === 'Bank Transfer' ? 'selected' : '' }}>
                                         Bank Transfer
                                     </option>
                                 </select>
@@ -58,7 +60,8 @@
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary"><i class="fas fa-save mr-2"></i>Update
                                 </button>
-                                <a href="{{ route('payments.index') }}" class="btn btn-secondary"><i class="fas fa-arrow-left mr-2"></i>Back</a>
+                                <a href="{{ route('payments.index') }}" class="btn btn-secondary"><i
+                                        class="fas fa-arrow-left mr-2"></i>Back</a>
                             </div>
                         </form>
                     </div>
