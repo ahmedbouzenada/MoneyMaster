@@ -19,3 +19,4 @@ Route::get('/', function () {
 
 Route::resource('/clients', \App\Http\Controllers\ClientController::class);
 Route::resource('/payments', \App\Http\Controllers\PaymentController::class);
+Route::resource('/debts', \App\Http\Controllers\DebtController::class);
