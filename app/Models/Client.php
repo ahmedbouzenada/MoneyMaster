@@ -21,4 +21,19 @@ class Client extends Model
         return $this->hasMany(Payment::class);
     }
 
+    protected function firstName(): Attribute
+    {
+        return Attribute::make(
+            get: fn(string $value) => ucfirst($value),
+            set: fn(string $value) => ucfirst($value)
+        );
+    }
+
+    protected function lastName(): Attribute
+    {
+        return Attribute::make(
+            get: fn(string $value) => ucfirst($value),
+            set: fn(string $value) => ucfirst($value)
+        );
+    }
 }
