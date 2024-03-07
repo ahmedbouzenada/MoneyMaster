@@ -22,6 +22,11 @@ class Client extends Model
         return $this->hasMany(Payment::class);
     }
 
+    public function debts()
+    {
+        return $this->hasMany(Debt::class);
+    }
+
     protected function firstName(): Attribute
     {
         return Attribute::make(
