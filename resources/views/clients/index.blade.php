@@ -18,6 +18,7 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone Number</th>
+                            <th>Balance</th>
                             <th class="text-center">Actions</th>
                         </tr>
                         </thead>
@@ -27,6 +28,7 @@
                                 <td>{{ $client->firstname }} {{ $client->lastname }}</td>
                                 <td>{{ $client->email }}</td>
                                 <td>{{ $client->phone_number }}</td>
+                                <td>{{ $client->balance().' DZD' }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('clients.show', $client->id) }}" class="btn btn-info btn-sm"
                                        title="View">
