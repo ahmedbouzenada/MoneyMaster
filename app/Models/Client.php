@@ -27,6 +27,11 @@ class Client extends Model
         return $this->hasMany(Debt::class);
     }
 
+    public function balance()
+    {
+        return $this->payments()->sum('amount') - $this->debts()->sum('amount');
+    }
+
     protected function firstName(): Attribute
     {
         return Attribute::make(

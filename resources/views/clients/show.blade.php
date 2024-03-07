@@ -17,12 +17,13 @@
                         </div>
                         <p class="card-text"><i class="fas fa-envelope mr-2"></i> {{ $client->email }}</p>
                         <p class="card-text"><i class="fas fa-phone mr-2"></i> {{ $client->phone_number ?: 'N/A' }}</p>
+                        <p class="card-text"><i class="fas fa-balance-scale mr-2"></i> {{ $client->balance() ?: 'N/A' }}</p>
                         <!-- Add more client details as needed -->
                     </div>
                 </div>
             </div>
             <div class="col-md-8">
-                <div class="card">
+                <div class="card my-1">
                     <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                         <h5 class="mb-0">Payments</h5>
                         <a href="{{ route('payments.create', ['client_id' => $client->id]) }}"
@@ -63,6 +64,50 @@
                             </div>
                         @else
                             <p class="text-center text-muted">No payments found.</p>
+                        @endif
+                    </div>
+                </div>
+                <div class="card my-1">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Debts</h5>
+                        <a href="{{ route('debts.create', ['client_id' => $client->id]) }}"
+                           class="btn btn-light btn-sm">
+                            <i class="fas fa-plus mr-2"></i>Create Debt
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        @if ($client->debts->count() > 0)
+                            <div class="list-group">
+                                @foreach ($client->debts as $debt)
+                                    <div class="list-group-item">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <p class="mb-1"><strong>Reference
+                                                        Number:</strong> {{ $debt->reference_number }}</p>
+                                                <p class="mb-1"><strong>Amount:</strong> {{ $debt->amount }}</p>
+                                                <p class="mb-0"><strong>Date:</strong> {{ $debt->date }}</p>
+                                            </div>
+                                            <div class="ml-3">
+                                                <a href="{{route('debts.edit',$debt->id)}}"
+                                                   class="btn btn-primary btn-sm"><i
+                                                        class="fas fa-edit"></i></a>
+                                                <form action="{{ route('debts.destroy', $debt->id) }}"
+                                                      method="POST" class="d-inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm"
+                                                            onclick="return confirm('Are you sure you want to delete this debt?')">
+                                                        <i
+                                                            class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @else
+                            <p class="text-center text-muted">No debts found.</p>
                         @endif
                     </div>
                 </div>

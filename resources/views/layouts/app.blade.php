@@ -34,7 +34,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('payments.index') }}">
+                    <a class="nav-link" href="{{ route('debts.index') }}">
                         <i class="fas fa-landmark mr-2"></i>Debts
                     </a>
                 </li>
