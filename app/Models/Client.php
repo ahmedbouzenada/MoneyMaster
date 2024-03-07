@@ -15,4 +15,10 @@ class Client extends Model
         'email',
         'phone_number',
     ];
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
+
 }
