@@ -44,7 +44,7 @@
                             <div class="form-group">
                                 <label for="phone_number" class="font-weight-bold">Phone Number</label>
                                 <input type="text" name="phone_number"
-                                       class="form-control @error('phone_number') is-invalid @enderror">
+                                       class="form-control @error('phone_number') is-invalid @enderror" required>
                                 @error('phone_number')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

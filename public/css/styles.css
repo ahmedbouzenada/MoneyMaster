@@ -1,0 +1,7 @@
+.positive-balance {
+    color: #28a745; /* Green color for positive balances */
+}
+
+.negative-balance {
+    color: #c82333; /* Red color for negative balances */
+}

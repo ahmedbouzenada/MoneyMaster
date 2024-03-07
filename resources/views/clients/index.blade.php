@@ -28,7 +28,7 @@
                                 <td>{{ $client->firstname }} {{ $client->lastname }}</td>
                                 <td>{{ $client->email }}</td>
                                 <td>{{ $client->phone_number }}</td>
-                                <td>{{ $client->balance().' DZD' }}</td>
+                                <td class="@if($client->balance() >= 0) positive-balance @else negative-balance @endif">{{ 'DZD ' . number_format($client->balance(), 2, ',', '.') }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('clients.show', $client->id) }}" class="btn btn-info btn-sm"
                                        title="View">
