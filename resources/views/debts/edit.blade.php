@@ -44,7 +44,7 @@
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary"><i class="fas fa-save mr-2"></i>Update
                                 </button>
-                                <a href="{{ route('debts.index') }}" class="btn btn-secondary"><i
+                                <a href="{{ route('clients.show',$debt->client) }}" class="btn btn-secondary"><i
                                         class="fas fa-arrow-left mr-2"></i>Back</a>
                             </div>
                         </form>

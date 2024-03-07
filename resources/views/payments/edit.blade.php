@@ -48,11 +48,11 @@
                                         Cash
                                     </option>
                                     <option
-                                            value="credit_card" {{ $payment->payment_method === 'Credit Card' ? 'selected' : '' }}>
+                                        value="credit_card" {{ $payment->payment_method === 'Credit Card' ? 'selected' : '' }}>
                                         Credit Card
                                     </option>
                                     <option
-                                            value="bank_transfer" {{ $payment->payment_method === 'Bank Transfer' ? 'selected' : '' }}>
+                                        value="bank_transfer" {{ $payment->payment_method === 'Bank Transfer' ? 'selected' : '' }}>
                                         Bank Transfer
                                     </option>
                                 </select>
@@ -60,7 +60,7 @@
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary"><i class="fas fa-save mr-2"></i>Update
                                 </button>
-                                <a href="{{ route('payments.index') }}" class="btn btn-secondary"><i
+                                <a href="{{ route('clients.show',$payment->client) }}" class="btn btn-secondary"><i
                                         class="fas fa-arrow-left mr-2"></i>Back</a>
                             </div>
                         </form>

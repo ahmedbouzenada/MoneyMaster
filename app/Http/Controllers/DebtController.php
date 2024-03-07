@@ -60,7 +60,7 @@ class DebtController extends Controller
     public function update(UpdateDebtRequest $request, Debt $debt)
     {
         $debt->update($request->validated());
-        return redirect()->route('debts.show', [$debt])->with('success', 'Debt updated successfully.');
+        return redirect()->route('clients.show', $request->client_id)->with('success', 'Debt updated successfully.');
     }
 
     /**
@@ -68,7 +68,8 @@ class DebtController extends Controller
      */
     public function destroy(Debt $debt)
     {
+        $client = $debt->client;
         $debt->delete();
-        return redirect()->route('debts.index')->with('success', 'Debt deleted successfully');
+        return redirect()->route('clients.show', $client)->with('success', 'Debt deleted successfully');
     }
 }

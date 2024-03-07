@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-left mt-2"><a href="{{ route('clients.index') }}" class="btn btn-secondary"><i
+                <div class="text-left mt-2"><a href="{{ route('clients.show',$debt->client) }}" class="btn btn-secondary"><i
                             class="fas fa-arrow-left mr-2"></i>Back</a>
                 </div>
             </div>

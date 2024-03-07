@@ -8,7 +8,8 @@
                     <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                         <h4 class="mb-0">Payment Details</h4>
                         <div>
-                            <a href="{{ route('payments.edit', ['payment' => $payment->id]) }}" class="btn btn-light btn-sm">
+                            <a href="{{ route('payments.edit', ['payment' => $payment->id]) }}"
+                               class="btn btn-light btn-sm">
                                 <i class="fas fa-edit mr-2"></i>Edit Payment
                             </a>
                             <!-- Add delete button if applicable -->
@@ -43,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-left mt-2"><a href="{{ route('clients.index') }}" class="btn btn-secondary"><i
+                <div class="text-left mt-2"><a href="{{ route('clients.show',$payment->client) }}" class="btn btn-secondary"><i
                             class="fas fa-arrow-left mr-2"></i>Back</a>
                 </div>
             </div>

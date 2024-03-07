@@ -63,7 +63,7 @@ class PaymentController extends Controller
     public function update(UpdatePaymentRequest $request, Payment $payment)
     {
         $payment->update($request->validated());
-        return redirect()->route('payments.show', [$payment])->with('success', 'Payment updated successfully.');
+        return redirect()->route('clients.show', $request->client_id)->with('success', 'Payment updated successfully.');
     }
 
     /**
@@ -71,7 +71,8 @@ class PaymentController extends Controller
      */
     public function destroy(Payment $payment)
     {
+        $client = $payment->client;
         $payment->delete();
-        return redirect()->route('payments.index')->with('success', 'Payment deleted successfully');
+        return redirect()->route('clients.show', $client)->with('success', 'Payment deleted successfully');
     }
 }

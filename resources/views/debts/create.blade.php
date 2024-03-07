@@ -34,7 +34,7 @@
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary"><i class="fas fa-plus mr-2"></i>Create
                                 </button>
-                                <a href="{{ route('clients.index') }}" class="btn btn-secondary"><i
+                                <a href="{{ route('clients.show',$client) }}" class="btn btn-secondary"><i
                                         class="fas fa-arrow-left mr-2"></i>Back</a>
                             </div>
                         </form>

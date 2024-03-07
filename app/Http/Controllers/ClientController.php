@@ -30,9 +30,9 @@ class ClientController extends Controller
      */
     public function store(StoreClientRequest $request)
     {
-        Client::create($request->validated());
+        $client = Client::create($request->validated());
 
-        return redirect()->route('clients.index')
+        return redirect()->route('clients.show', $client->id)
             ->with('success', 'Client created successfully.');
     }
 
@@ -58,7 +58,7 @@ class ClientController extends Controller
     public function update(UpdateClientRequest $request, Client $client)
     {
         $client->update($request->validated());
-        return redirect()->route('clients.index')
+        return redirect()->route('clients.show', $client->id)
             ->with('success', 'Client updated successfully.');
     }
 
