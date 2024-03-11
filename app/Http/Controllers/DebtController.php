@@ -6,6 +6,7 @@ use App\Http\Requests\StoreDebtRequest;
 use App\Http\Requests\UpdateDebtRequest;
 use App\Models\Client;
 use App\Models\Debt;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class DebtController extends Controller
@@ -13,9 +14,17 @@ class DebtController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $debts = Debt::orderByDesc('date')->get();
+        $search = $request->input('search');
+        $debts = Debt::whereHas(
+            'client', function ($query) use ($search) {
+            $query->where('firstname', 'like', $search . '%')
+                ->orWhere('lastname', 'like', $search . '%');
+        }
+        )
+            ->orderByDesc('date')
+            ->paginate(10);
         return view('debts.index', compact('debts'));
     }
 

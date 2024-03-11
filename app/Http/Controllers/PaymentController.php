@@ -6,18 +6,27 @@ use App\Http\Requests\StorePaymentRequest;
 use App\Http\Requests\UpdatePaymentRequest;
 use App\Models\Client;
 use App\Models\Payment;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
+use function Laravel\Prompts\search;
 
 class PaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $payments = Payment::orderByDesc('date')->get();
+        $search = $request->input('search');
+        $payments = Payment::whereHas(
+            'client', function ($query) use ($search) {
+            $query->where('firstname', 'like', $search . '%')
+                ->orWhere('lastname', 'like', $search . '%');
+        }
+        )
+            ->orderByDesc('date')
+            ->paginate(15);
         return view('payments.index', compact('payments'));
     }
 

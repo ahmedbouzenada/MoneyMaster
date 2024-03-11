@@ -5,15 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
+use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $clients = Client::all();
+        $search = $request->input('search');
+        $clients = Client::where('firstname', 'like', $search . '%')
+            ->orWhere('lastname', 'like', $search . '%')
+            ->orderBy('firstname')
+            ->paginate(15);
         return view('clients.index', compact('clients'));
     }
 

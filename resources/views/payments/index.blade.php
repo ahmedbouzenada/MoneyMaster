@@ -3,7 +3,20 @@
 @section('content')
     <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h2>Payments</h2>
+            <h2><i class="fas fa-money-bill-wave mr-2"></i>Payments</h2>
+            <div class="d-flex">
+                <form action="{{ route('payments.index') }}" method="GET" class="mr-3">
+                    <div class="input-group">
+                        <input type="text" name="search" class="form-control" placeholder="Search..."
+                               value="{{ request()->input('search') }}">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
 
         <div class="card shadow-sm">
@@ -52,6 +65,7 @@
                         </tbody>
                     </table>
                 </div>
+                {{$payments->withQueryString()->links('pagination::bootstrap-5')}}
             </div>
         </div>
     </div>
