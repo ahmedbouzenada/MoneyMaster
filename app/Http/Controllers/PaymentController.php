@@ -6,10 +6,8 @@ use App\Http\Requests\StorePaymentRequest;
 use App\Http\Requests\UpdatePaymentRequest;
 use App\Models\Client;
 use App\Models\Payment;
-use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use function Laravel\Prompts\search;
 
 class PaymentController extends Controller
 {
