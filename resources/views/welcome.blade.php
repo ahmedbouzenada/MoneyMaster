@@ -5,10 +5,10 @@
         <div class="jumbotron bg-light shadow-sm rounded">
             <div class="row">
                 <div class="col-md-6">
-                    <h1 class="display-4 text-primary">Welcome to DebtTracker</h1>
+                    <h1 class="display-4 text-primary">Welcome to MoneyMaster</h1>
                     <p class="lead">Effortlessly Manage Your Finances</p>
                     <hr class="my-4">
-                    <p class="text-muted">DebtTracker is a powerful and intuitive application designed to streamline
+                    <p class="text-muted">MoneyMaster is a powerful and intuitive application designed to streamline
                         your financial management. With its user-friendly interface and robust features, you can easily
                         keep track of your debts, payments, and overall financial health.</p>
                     <p class="text-muted">Take control of your finances today and experience the benefits of seamless
