@@ -13,6 +13,6 @@ class DebtSeeder extends Seeder
      */
     public function run(): void
     {
-        Debt::factory(30)->create();
+        Debt::factory(100)->create();
     }
 }

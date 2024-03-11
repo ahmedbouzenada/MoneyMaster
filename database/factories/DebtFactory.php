@@ -21,7 +21,7 @@ class DebtFactory extends Factory
         return [
             'amount' => $this->faker->randomFloat(2, 10, 1000),
             'description' => $this->faker->sentence,
-            'date' => $this->faker->dateTime,
+            'date' => $this->faker->dateTimeBetween('-2 years'),
             'client_id' => $this->faker->randomElement($clientIds),
             'reference_number' => $this->faker->unique()->uuid,
         ];

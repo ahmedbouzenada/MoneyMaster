@@ -22,7 +22,7 @@ class PaymentFactory extends Factory
         return [
             'amount' => $this->faker->randomFloat(2, 10, 1000),
             'description' => $this->faker->sentence,
-            'date' => $this->faker->dateTime,
+            'date' => $this->faker->dateTimeBetween('-2 years'),
             'client_id' => $this->faker->randomElement($clientIds),
             'payment_method' => $this->faker->randomElement(['cash', 'credit_card', 'bank_transfer']),
             'reference_number' => $this->faker->unique()->uuid,
