@@ -17,27 +17,32 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <p><strong>Reference Number:</strong></p>
-                                <p class="border rounded p-2">{{ $debt->reference_number }}</p>
+                                <p><strong>Client:</strong></p>
+                                <p class="border rounded p-2">{{ $debt->client->firstname }} {{ $debt->client->lastname }}</p>
                             </div>
                             <div class="col-md-6">
-                                <p><strong>Amount:</strong></p>
-                                <p class="border rounded p-2">{{ $debt->amount }}</p>
+                                <p><strong>Reference Number:</strong></p>
+                                <p class="border rounded p-2">{{ $debt->reference_number }}</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <p><strong>Description:</strong></p>
-                                <p class="border rounded p-2">{{ $debt->description ?: 'N/A' }}</p>
+                                <p><strong>Amount:</strong></p>
+                                <p class="border rounded p-2">{{ $debt->amount }}</p>
                             </div>
                             <div class="col-md-6">
                                 <p><strong>Date:</strong></p>
                                 <p class="border rounded p-2">{{ $debt->date }}</p>
                             </div>
+                            <div class="col-md-6">
+                                <p><strong>Description:</strong></p>
+                                <p class="border rounded p-2">{{ $debt->description ?: 'N/A' }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="text-left mt-2"><a href="{{ route('clients.show',$debt->client) }}" class="btn btn-secondary"><i
+                <div class="text-left mt-2"><a href="{{ route('clients.show',$debt->client) }}"
+                                               class="btn btn-secondary"><i
                             class="fas fa-arrow-left mr-2"></i>Back</a>
                 </div>
             </div>
