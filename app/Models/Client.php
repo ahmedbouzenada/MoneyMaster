@@ -17,6 +17,8 @@ class Client extends Model
         'phone_number',
     ];
 
+    protected $appends = ['balance',];
+
     public function payments()
     {
         return $this->hasMany(Payment::class);
@@ -27,7 +29,7 @@ class Client extends Model
         return $this->hasMany(Debt::class);
     }
 
-    public function balance()
+    public function getBalanceAttribute()
     {
         return $this->payments()->sum('amount') - $this->debts()->sum('amount');
     }
