@@ -26,8 +26,22 @@
                         <thead class="thead-dark">
                         <tr>
                             <th>Client</th>
-                            <th>Amount</th>
-                            <th>Date</th>
+                            <th>
+                                <a href="{{ route('payments.index', ['sort' => 'amount', 'order' => request()->input('order') === 'asc' ? 'desc' : 'asc']) }}">
+                                    Amount
+                                    @if(request()->input('sort') === 'amount')
+                                        <i class="fas fa-sort-{{ request()->input('order') === 'asc' ? 'up' : 'down' }}"></i>
+                                    @endif
+                                </a>
+                            </th>
+                            <th>
+                                <a href="{{ route('payments.index', ['sort' => 'date', 'order' => request()->input('order') === 'asc' ? 'desc' : 'asc']) }}">
+                                    Date
+                                    @if(request()->input('sort') === 'date')
+                                        <i class="fas fa-sort-{{ request()->input('order') === 'asc' ? 'up' : 'down' }}"></i>
+                                    @endif
+                                </a>
+                            </th>
                             <th class="text-center">Actions</th>
                         </tr>
                         </thead>

@@ -28,8 +28,22 @@
                     <table class="table table-striped table-hover">
                         <thead class="thead-dark">
                         <tr>
-                            <th>Name</th>
-                            <th>Email</th>
+                            <th>
+                                <a href="{{ route('clients.index', ['sort' => 'firstname', 'order' => request()->input('order') === 'asc' ? 'desc' : 'asc']) }}">
+                                    Name
+                                    @if(request()->input('sort') === 'firstname')
+                                        <i class="fas fa-sort-{{ request()->input('order') === 'asc' ? 'up' : 'down' }}"></i>
+                                    @endif
+                                </a>
+                            </th>
+                            <th>
+                                <a href="{{ route('clients.index', ['sort' => 'email', 'order' => request()->input('order') === 'asc' ? 'desc' : 'asc']) }}">
+                                    Email
+                                    @if(request()->input('sort') === 'email')
+                                        <i class="fas fa-sort-{{ request()->input('order') === 'asc' ? 'up' : 'down' }}"></i>
+                                    @endif
+                                </a>
+                            </th>
                             <th>Phone Number</th>
                             <th>Balance</th>
                             <th class="text-center">Actions</th>
@@ -41,7 +55,7 @@
                                 <td>{{ $client->firstname }} {{ $client->lastname }}</td>
                                 <td>{{ $client->email }}</td>
                                 <td>{{ $client->phone_number }}</td>
-                                <td class="@if($client->balance() >= 0) positive-balance @else negative-balance @endif">{{ 'DZD ' . number_format($client->balance(), 2, ',', '.') }}</td>
+                                <td class="@if($client->balance >= 0) positive-balance @else negative-balance @endif">{{ 'DZD ' . number_format($client->balance, 2, ',', '.') }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('clients.show', $client->id) }}" class="btn btn-info btn-sm"
                                        title="View">
@@ -70,7 +84,7 @@
                         </tbody>
                     </table>
                 </div>
-                {{$clients->withQueryString()->links('pagination::bootstrap-5')}}
+                {{ $clients->withQueryString()->links('pagination::bootstrap-5') }}
             </div>
         </div>
     </div>

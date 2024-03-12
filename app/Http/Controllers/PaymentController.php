@@ -17,13 +17,15 @@ class PaymentController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
+        $sortColumn = $request->input('sort', 'date');
+        $sortOrder = $request->input('order', 'desc');
         $payments = Payment::whereHas(
             'client', function ($query) use ($search) {
             $query->where('firstname', 'like', $search . '%')
                 ->orWhere('lastname', 'like', $search . '%');
         }
         )
-            ->orderByDesc('date')
+            ->orderBy($sortColumn, $sortOrder)
             ->paginate(15);
         return view('payments.index', compact('payments'));
     }
