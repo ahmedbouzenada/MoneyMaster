@@ -18,7 +18,7 @@ class ClientController extends Controller
         $search = $request->input('search');
         $sortColumn = $request->input('sort', 'firstname');
         $sortOrder = $request->input('order', 'asc');
-        $clients = Client::query()
+        $clients = DB::table("clients_all_view")
             ->when($search, function ($query, $search) {
                 $query->where('firstname', 'like', '%' . $search . '%')
                     ->orWhere('lastname', 'like', '%' . $search . '%')
