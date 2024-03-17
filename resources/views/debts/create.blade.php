@@ -19,7 +19,10 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">$</span>
                                     </div>
-                                    <input type="text" name="amount" class="form-control" id="amount" required>
+                                    <input type="number" name="amount" class="form-control" id="amount" min="0"
+                                           step="0.01"
+                                           max="99999999.99"
+                                           required>
                                 </div>
                             </div>
                             <div class="form-group">

@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->decimal('amount', 10);
+            $table->unsignedDecimal('amount', 10);
             $table->string('description')->nullable();
             $table->datetime('date');
             $table->enum('payment_method', ['cash', 'credit_card', 'bank_transfer']);
