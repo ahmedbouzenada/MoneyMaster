@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <div class="card my-1">
+                <div class="card mb-4">
                     <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                         <h5 class="mb-0">Payments</h5>
                         <a href="{{ route('payments.create', ['client_id' => $client->id]) }}"
@@ -48,7 +48,7 @@
                                             <div class="ml-3">
                                                 <a href="{{route('payments.edit',$payment->id)}}"
                                                    class="btn btn-primary btn-sm"><i
-                                                            class="fas fa-edit"></i></a>
+                                                        class="fas fa-edit"></i></a>
                                                 <form action="{{ route('payments.destroy', $payment->id) }}"
                                                       method="POST" class="d-inline">
                                                     @csrf
@@ -56,7 +56,7 @@
                                                     <button type="submit" class="btn btn-danger btn-sm"
                                                             onclick="return confirm('Are you sure you want to delete this payment?')">
                                                         <i
-                                                                class="fas fa-trash"></i>
+                                                            class="fas fa-trash"></i>
                                                     </button>
                                                 </form>
                                             </div>
@@ -68,8 +68,11 @@
                             <p class="text-center text-muted">No payments found.</p>
                         @endif
                     </div>
+                    <div class="card-footer d-flex justify-content-end positive-balance">
+                        <strong>Total: {{ $client->payments()->sum('amount') }} DZD</strong>
+                    </div>
                 </div>
-                <div class="card my-1">
+                <div class="card mb-4">
                     <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                         <h5 class="mb-0">Debts</h5>
                         <a href="{{ route('debts.create', ['client_id' => $client->id]) }}"
@@ -92,7 +95,7 @@
                                             <div class="ml-3">
                                                 <a href="{{route('debts.edit',$debt->id)}}"
                                                    class="btn btn-primary btn-sm"><i
-                                                            class="fas fa-edit"></i></a>
+                                                        class="fas fa-edit"></i></a>
                                                 <form action="{{ route('debts.destroy', $debt->id) }}"
                                                       method="POST" class="d-inline">
                                                     @csrf
@@ -100,7 +103,7 @@
                                                     <button type="submit" class="btn btn-danger btn-sm"
                                                             onclick="return confirm('Are you sure you want to delete this debt?')">
                                                         <i
-                                                                class="fas fa-trash"></i>
+                                                            class="fas fa-trash"></i>
                                                     </button>
                                                 </form>
                                             </div>
@@ -112,8 +115,11 @@
                             <p class="text-center text-muted">No debts found.</p>
                         @endif
                     </div>
+                    <div class="card-footer d-flex justify-content-end negative-balance">
+                        <strong>Total: {{ -$client->debts()->sum('amount') }} DZD</strong>
+                    </div>
                 </div>
-                <div class="text-left mt-2"><a href="{{ route('clients.index') }}" class="btn btn-secondary"><i
+                <div class="text-left my-4"><a href="{{ route('clients.index') }}" class="btn btn-secondary"><i
                             class="fas fa-arrow-left mr-2"></i>Back</a>
                 </div>
             </div>
