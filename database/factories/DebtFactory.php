@@ -19,7 +19,7 @@ class DebtFactory extends Factory
     {
         $clientIds = Client::pluck('id')->toArray();
         return [
-            'amount' => $this->faker->randomFloat(2, 10, 1000),
+            'amount' => $this->faker->randomFloat(2, 1000, 10000),
             'description' => $this->faker->sentence,
             'date' => $this->faker->dateTimeBetween('-2 years'),
             'client_id' => $this->faker->randomElement($clientIds),
