@@ -42,6 +42,16 @@
                                 @enderror
                             </div>
                             <div class="form-group">
+                                <label for="birthdate" class="font-weight-bold">Birthdate</label>
+                                <input type="date" name="birthdate"
+                                       class="form-control @error('birthdate') is-invalid @enderror" required>
+                                @error('birthdate')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
                                 <label for="phone_number" class="font-weight-bold">Phone Number</label>
                                 <input type="text" name="phone_number"
                                        class="form-control @error('phone_number') is-invalid @enderror" required>

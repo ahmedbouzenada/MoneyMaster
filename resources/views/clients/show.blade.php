@@ -17,6 +17,7 @@
                         </div>
                         <p class="card-text"><i class="fas fa-envelope mr-2"></i> {{ $client->email }}</p>
                         <p class="card-text"><i class="fas fa-phone mr-2"></i> {{ $client->phone_number ?: 'N/A' }}</p>
+                        <p class="card-text"><i class="fas fa-calendar mr-2"></i> {{ $client->birthdate ?: 'N/A' }}</p>
                         <p class="card-text @if($client->balance >= 0) positive-balance @else negative-balance @endif">
                             <i class="fas fa-balance-scale mr-2"></i> {{ number_format($client->balance, 2, ',', '.').' DZD' ?: 'N/A' }}
                         </p>

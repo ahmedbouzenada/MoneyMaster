@@ -25,6 +25,7 @@ class StoreClientRequest extends FormRequest
             'firstname' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
             'email' => 'required|email|unique:clients,email',
+            'birthdate' => 'required|date',
             'phone_number' => ['nullable', 'regex:/^(05|06|07)\d{8}$/'],
         ];
     }

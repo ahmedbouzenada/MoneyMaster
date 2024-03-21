@@ -21,7 +21,8 @@ class ClientFactory extends Factory
             'lastname' => $this->faker->lastName,
             'email' => $this->faker->unique()->safeEmail,
             'phone_number' => '0' . random_int(5, 7) . $this->faker->numerify('########'),
-
+            'birthdate' => $this->faker->dateTimeBetween('-90 years', '-18 years'),
         ];
+
     }
 }
