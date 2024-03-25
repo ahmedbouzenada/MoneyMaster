@@ -18,7 +18,7 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $payments = PaymentResource::collection(Payment::all());
+        $payments = PaymentResource::collection(Payment::paginate(10));
         return Inertia::render('Payments/Index', compact('payments'));
     }
 

@@ -1,6 +1,20 @@
+<script>
+import Pagination from "../VueComponents/Pagination.vue";
+
+export default {
+    components: {
+        Pagination
+    },
+    props: {
+        clients: Object,
+    },
+}
+
+</script>
+
 <template>
     <table class="table table-striped table-bordered table-hover">
-        <thead class="thead-dark">
+        <thead class="table-dark">
         <tr>
             <th>Name</th>
             <th>Email</th>
@@ -9,7 +23,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-for="client in clients" :key="client.id">
+        <tr v-for="client in clients.data" :key="client.id">
             <td>{{ client.name }}</td>
             <td>{{ client.email }}</td>
             <td>{{ client.phone }}</td>
@@ -17,15 +31,8 @@
         </tr>
         </tbody>
     </table>
+    <pagination class="mt-6" :links="clients.meta.links"/>
 </template>
-
-<script>
-export default {
-    props: {
-        clients: Array,
-    },
-}
-</script>
 
 <style>
 </style>

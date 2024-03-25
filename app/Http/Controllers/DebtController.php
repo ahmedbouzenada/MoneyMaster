@@ -17,7 +17,7 @@ class DebtController extends Controller
      */
     public function index()
     {
-        $debts = DebtResource::collection(Debt::all());
+        $debts = DebtResource::collection(Debt::paginate(10));
         return Inertia::render('Debts/Index', compact('debts'));
     }
 

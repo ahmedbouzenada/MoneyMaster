@@ -1,6 +1,6 @@
 <template>
     <table class="table table-striped table-bordered table-hover">
-        <thead class="thead-dark">
+        <thead class="table-dark">
         <tr>
             <th>Client</th>
             <th>Reference Number</th>
@@ -9,7 +9,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-for="debt in debts" :key="debt.id">
+        <tr v-for="debt in debts.data" :key="debt.id">
             <td>{{ debt.client }}</td>
             <td>{{ debt.reference_number }}</td>
             <td>{{ $filters.currency(debt.amount) }}</td>
@@ -17,10 +17,16 @@
         </tr>
         </tbody>
     </table>
+    <pagination class="mt-6" :links="debts.meta.links"/>
 </template>
 
 <script>
+import Pagination from "@/VueComponents/Pagination.vue";
+
 export default {
+    components: {
+        Pagination
+    },
     props: {
         debts: Array,
     },

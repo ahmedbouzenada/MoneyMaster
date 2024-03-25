@@ -2,7 +2,6 @@ import './bootstrap';
 import {createApp, h} from 'vue'
 import {createInertiaApp} from '@inertiajs/vue3'
 import Layout from "@/Common/Layout.vue";
-import './bootstrap';
 import 'bootstrap';
 import '@popperjs/core';
 
@@ -15,6 +14,7 @@ createInertiaApp({
     },
     setup({el, App, props, plugin}) {
         const app = createApp({render: () => h(App, props)})
+            // .component('inertia-link', Link)
             .use(plugin)
         app.config.globalProperties.$filters = {
             currency(value) {
