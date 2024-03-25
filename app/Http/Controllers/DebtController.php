@@ -8,6 +8,7 @@ use App\Models\Client;
 use App\Models\Debt;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Inertia\Inertia;
 
 class DebtController extends Controller
 {
@@ -16,18 +17,8 @@ class DebtController extends Controller
      */
     public function index(Request $request)
     {
-        $search = $request->input('search');
-        $sortColumn = $request->input('sort', 'date');
-        $sortOrder = $request->input('order', 'desc');
-        $debts = Debt::whereHas(
-            'client', function ($query) use ($search) {
-            $query->where('firstname', 'like', $search . '%')
-                ->orWhere('lastname', 'like', $search . '%');
-        }
-        )
-            ->orderBy($sortColumn, $sortOrder)
-            ->paginate(10);
-        return view('debts.index', compact('debts'));
+        $debts = Debt::all();
+        return Inertia::render('Debts/Index', compact('debts'));
     }
 
     /**
