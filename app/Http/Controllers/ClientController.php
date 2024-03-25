@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
+use App\Http\Resources\ClientResource;
 use App\Models\Client;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
 class ClientController extends Controller
@@ -14,9 +13,9 @@ class ClientController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $clients = Client::all();
+        $clients = ClientResource::collection(Client::all());
         return Inertia::render('Clients/Index', compact('clients'));
     }
 

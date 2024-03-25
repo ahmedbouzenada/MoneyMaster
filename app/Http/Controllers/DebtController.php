@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreDebtRequest;
 use App\Http\Requests\UpdateDebtRequest;
+use App\Http\Resources\DebtResource;
 use App\Models\Client;
 use App\Models\Debt;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
 
@@ -15,9 +15,9 @@ class DebtController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $debts = Debt::all();
+        $debts = DebtResource::collection(Debt::all());
         return Inertia::render('Debts/Index', compact('debts'));
     }
 
