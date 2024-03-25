@@ -7,28 +7,28 @@ import {Link} from '@inertiajs/vue3';
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
                 <Link class="navbar-brand" href="/">
-                    <i class="fas fa-money-check-alt mr-2"></i>MoneyMaster
+                    <i class="fas fa-money-check-alt me-2"></i>MoneyMaster
                 </Link>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <Link class="nav-link" href="/clients">
-                                <i class="fas fa-users mr-2"></i>Clients
+                                <i class="fas fa-users me-2"></i>Clients
                             </Link>
                         </li>
                         <li class="nav-item">
                             <Link class="nav-link" href="/payments">
-                                <i class="fas fa-money-bill-wave mr-2"></i>Payments
+                                <i class="fas fa-money-bill-wave me-2"></i>Payments
                             </Link>
                         </li>
                         <li class="nav-item">
                             <Link class="nav-link" href="/debts">
-                                <i class="fas fa-landmark mr-2"></i>Debts
+                                <i class="fas fa-landmark me-2"></i>Debts
                             </Link>
                         </li>
                     </ul>
@@ -47,6 +47,4 @@ import {Link} from '@inertiajs/vue3';
 </template>
 
 <style>
-
-
 </style>

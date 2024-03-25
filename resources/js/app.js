@@ -2,6 +2,9 @@ import './bootstrap';
 import {createApp, h} from 'vue'
 import {createInertiaApp} from '@inertiajs/vue3'
 import Layout from "@/Common/Layout.vue";
+import './bootstrap';
+import 'bootstrap';
+import '@popperjs/core';
 
 createInertiaApp({
     resolve: name => {
@@ -17,11 +20,9 @@ createInertiaApp({
             currency(value) {
                 return new Intl.NumberFormat('ar-DZ').format(value) + ' DZD'
             },
-            // Put the rest of your filters here
         }
 
         app.mount(el);
-        // .mount(el)
     },
 })
 

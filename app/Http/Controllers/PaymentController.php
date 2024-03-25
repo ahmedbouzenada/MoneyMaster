@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePaymentRequest;
 use App\Http\Requests\UpdatePaymentRequest;
+use App\Http\Resources\PaymentResource;
 use App\Models\Client;
 use App\Models\Payment;
 use Illuminate\Http\Request;
@@ -15,9 +16,9 @@ class PaymentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $payments = Payment::all();
+        $payments = PaymentResource::collection(Payment::all());
         return Inertia::render('Payments/Index', compact('payments'));
     }
 
