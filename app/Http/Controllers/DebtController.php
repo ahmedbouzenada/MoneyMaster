@@ -4,30 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreDebtRequest;
 use App\Http\Requests\UpdateDebtRequest;
+use App\Http\Resources\DebtResource;
 use App\Models\Client;
 use App\Models\Debt;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Inertia\Inertia;
 
 class DebtController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $search = $request->input('search');
-        $sortColumn = $request->input('sort', 'date');
-        $sortOrder = $request->input('order', 'desc');
-        $debts = Debt::whereHas(
-            'client', function ($query) use ($search) {
-            $query->where('firstname', 'like', $search . '%')
-                ->orWhere('lastname', 'like', $search . '%');
-        }
-        )
-            ->orderBy($sortColumn, $sortOrder)
-            ->paginate(10);
-        return view('debts.index', compact('debts'));
+        $debts = DebtResource::collection(Debt::paginate(10));
+        return Inertia::render('Debts/Index', compact('debts'));
     }
 
     /**
