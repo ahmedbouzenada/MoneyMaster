@@ -6,6 +6,7 @@ use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
 use App\Http\Resources\ClientResource;
 use App\Models\Client;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class ClientController extends Controller
@@ -13,9 +14,15 @@ class ClientController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $clients = ClientResource::collection(Client::paginate(10));
+        $clients = ClientResource::collection(
+            Client::where('lastname', 'like', "{$request->query('search')}%")
+                ->orWhere('firstname', 'like', "{$request->query('search')}%")
+                ->orderby('firstname')
+                ->paginate(10)
+                ->withQueryString()
+        );
         return Inertia::render('Clients/Index', compact('clients'));
     }
 

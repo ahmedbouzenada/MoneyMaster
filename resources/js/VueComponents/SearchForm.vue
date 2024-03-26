@@ -1,17 +1,32 @@
 <script setup>
+import {ref, watch} from "vue";
+import {router} from "@inertiajs/vue3";
+
+const props = defineProps({
+    route: {
+        type: String,
+        required: true,
+    },
+});
+
+let search = ref('')
+watch(
+    search, (value) => {
+        router.get(props.route, {search: value,},
+            {
+                replace: true,
+                preserveState: true,
+            }
+        )
+    }
+);
 </script>
 
 <template>
-    <form @submit.prevent="search">
-        <div class="input-group">
-            <input
-                type="text"
-                class="form-control"
-                placeholder="Search..."
-            />
-            <button class="btn btn-primary" type="submit">
-                <i class="bi bi-search"></i>
-            </button>
-        </div>
-    </form>
+    <input
+        type="text"
+        placeholder="Search..."
+        v-model="search"
+        class="form-control"
+    />
 </template>

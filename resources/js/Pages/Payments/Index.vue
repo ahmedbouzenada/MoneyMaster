@@ -4,7 +4,9 @@ import {Head} from "@inertiajs/vue3";
 import SearchForm from "@/VueComponents/SearchForm.vue";
 
 defineProps(
-    {payments: Object}
+    {
+        payments: Object,
+    }
 )
 </script>
 
@@ -13,7 +15,7 @@ defineProps(
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2><i class="fas fa-money-bill-wave me-2"></i>Payments</h2>
         <div class="d-flex">
-            <SearchForm/>
+            <SearchForm :route="'/payments'"/>
         </div>
     </div>
     <Payments :payments></Payments>
