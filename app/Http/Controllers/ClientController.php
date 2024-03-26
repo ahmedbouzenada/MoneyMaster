@@ -4,29 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
+use App\Http\Resources\ClientResource;
 use App\Models\Client;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Inertia\Inertia;
 
 class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $search = $request->input('search');
-        $sortColumn = $request->input('sort', 'firstname');
-        $sortOrder = $request->input('order', 'asc');
-        $clients = DB::table("clients_all_view")
-            ->when($search, function ($query, $search) {
-                $query->where('firstname', 'like', '%' . $search . '%')
-                    ->orWhere('lastname', 'like', '%' . $search . '%')
-                    ->orWhere('email', 'like', '%' . $search . '%');
-            })
-            ->orderBy($sortColumn, $sortOrder)
-            ->paginate(15);
-        return view('clients.index', compact('clients'));
+        $clients = ClientResource::collection(Client::paginate(10));
+        return Inertia::render('Clients/Index', compact('clients'));
     }
 
     /**

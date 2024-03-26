@@ -4,30 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePaymentRequest;
 use App\Http\Requests\UpdatePaymentRequest;
+use App\Http\Resources\PaymentResource;
 use App\Models\Client;
 use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Inertia\Inertia;
 
 class PaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $search = $request->input('search');
-        $sortColumn = $request->input('sort', 'date');
-        $sortOrder = $request->input('order', 'desc');
-        $payments = Payment::whereHas(
-            'client', function ($query) use ($search) {
-            $query->where('firstname', 'like', $search . '%')
-                ->orWhere('lastname', 'like', $search . '%');
-        }
-        )
-            ->orderBy($sortColumn, $sortOrder)
-            ->paginate(15);
-        return view('payments.index', compact('payments'));
+        $payments = PaymentResource::collection(Payment::paginate(10));
+        return Inertia::render('Payments/Index', compact('payments'));
     }
 
     /**
