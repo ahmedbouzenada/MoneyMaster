@@ -1,4 +1,6 @@
 <script setup>
+import Pagination from "@/VueComponents/Pagination.vue";
+
 defineProps(
     {debts: Object}
 )

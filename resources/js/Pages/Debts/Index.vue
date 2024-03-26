@@ -1,5 +1,7 @@
 <script setup>
 import Debts from "@/VueComponents/Debts.vue";
+import SearchForm from "@/VueComponents/SearchForm.vue";
+import {Head} from "@inertiajs/vue3";
 
 defineProps(
     {debts: Object}

@@ -1,5 +1,7 @@
 <script setup>
 import Payments from "@/VueComponents/Payments.vue";
+import {Head} from "@inertiajs/vue3";
+import SearchForm from "@/VueComponents/SearchForm.vue";
 
 defineProps(
     {payments: Object}

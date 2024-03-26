@@ -1,11 +1,9 @@
 import './bootstrap';
 import {createApp, h} from 'vue'
-import {createInertiaApp, Head, Link} from '@inertiajs/vue3'
+import {createInertiaApp} from '@inertiajs/vue3'
 import Layout from "@/Shared/Layout.vue";
 import 'bootstrap';
 import '@popperjs/core';
-import Pagination from "@/VueComponents/Pagination.vue";
-import SearchForm from "@/VueComponents/SearchForm.vue";
 
 createInertiaApp({
     progress: {
@@ -22,12 +20,7 @@ createInertiaApp({
     },
     setup({el, App, props, plugin}) {
         const app = createApp({render: () => h(App, props)})
-            // .component('inertia-link', Link)
             .use(plugin)
-            .component("Link", Link)
-            .component("Pagination", Pagination)
-            .component("Head", Head)
-            .component("SearchForm", SearchForm)
         app.config.globalProperties.$filters = {
             currency(value) {
                 return 'DZD ' + new Intl.NumberFormat('ar-DZ').format(value);

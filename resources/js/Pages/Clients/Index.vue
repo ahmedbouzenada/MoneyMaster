@@ -1,6 +1,8 @@
 <script setup>
 import Clients from '../../VueComponents/Clients.vue'
 import CreateButton from '../../VueComponents/CreateButton.vue'
+import {Head} from "@inertiajs/vue3";
+import SearchForm from "@/VueComponents/SearchForm.vue";
 
 defineProps(
     {clients: Object}
