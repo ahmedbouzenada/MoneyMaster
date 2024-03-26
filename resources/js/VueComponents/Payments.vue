@@ -1,3 +1,9 @@
+<script setup>
+defineProps({
+    payments: Object,
+});
+</script>
+
 <template>
     <table class="table table-striped table-bordered table-hover">
         <thead class="table-dark">
@@ -19,15 +25,3 @@
     </table>
     <pagination class="mt-6" :links="payments.meta.links"/>
 </template>
-
-<script setup>
-import Pagination from "@/VueComponents/Pagination.vue";
-
-defineProps({
-    payments: Object,
-});
-</script>
-
-<style>
-
-</style>

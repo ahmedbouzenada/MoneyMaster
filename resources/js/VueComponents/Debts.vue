@@ -1,3 +1,9 @@
+<script setup>
+defineProps(
+    {debts: Object}
+)
+</script>
+
 <template>
     <table class="table table-striped table-bordered table-hover">
         <thead class="table-dark">
@@ -19,15 +25,3 @@
     </table>
     <pagination class="mt-6" :links="debts.meta.links"/>
 </template>
-
-<script setup>
-import Pagination from "@/VueComponents/Pagination.vue";
-
-defineProps(
-    {debts: Object}
-)
-</script>
-
-<style>
-
-</style>

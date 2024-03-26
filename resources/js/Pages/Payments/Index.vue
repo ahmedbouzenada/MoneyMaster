@@ -1,7 +1,5 @@
 <script setup>
-import {Head} from "@inertiajs/vue3";
 import Payments from "@/VueComponents/Payments.vue";
-import SearchForm from "@/VueComponents/SearchForm.vue";
 
 defineProps(
     {payments: Object}
@@ -18,7 +16,3 @@ defineProps(
     </div>
     <Payments :payments></Payments>
 </template>
-
-<style scoped>
-
-</style>

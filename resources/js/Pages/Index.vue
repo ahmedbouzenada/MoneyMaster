@@ -1,3 +1,6 @@
+<script setup>
+</script>
+
 <template>
     <div class="container">
         <div class="p-5 bg-light rounded-3 shadow-sm">
@@ -50,8 +53,3 @@
         </div>
     </div>
 </template>
-
-<script setup>
-import {Link} from '@inertiajs/vue3'
-</script>
-

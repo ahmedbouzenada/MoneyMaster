@@ -1,7 +1,5 @@
 <script setup>
-import {Head} from "@inertiajs/vue3";
 import Debts from "@/VueComponents/Debts.vue";
-import SearchForm from "@/VueComponents/SearchForm.vue";
 
 defineProps(
     {debts: Object}
@@ -19,7 +17,3 @@ defineProps(
     </div>
     <Debts :debts></Debts>
 </template>
-
-<style scoped>
-
-</style>

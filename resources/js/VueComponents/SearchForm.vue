@@ -1,3 +1,6 @@
+<script setup>
+</script>
+
 <template>
     <form @submit.prevent="search">
         <div class="input-group">
@@ -12,6 +15,3 @@
         </div>
     </form>
 </template>
-
-<script setup>
-</script>

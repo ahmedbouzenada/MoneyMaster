@@ -1,5 +1,5 @@
 <script setup>
-import {Link} from "@inertiajs/vue3";
+
 </script>
 
 <template>
@@ -43,7 +43,3 @@ import {Link} from "@inertiajs/vue3";
         </div>
     </nav>
 </template>
-
-<style scoped>
-
-</style>

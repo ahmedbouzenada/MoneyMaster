@@ -1,9 +1,3 @@
-<template>
-    <a :href="createUrl" class="btn btn-primary">
-        <i class="bi bi-plus me-2"></i>{{ label }}
-    </a>
-</template>
-
 <script setup>
 defineProps({
     createUrl: {
@@ -16,3 +10,9 @@ defineProps({
     },
 });
 </script>
+
+<template>
+    <a :href="createUrl" class="btn btn-primary">
+        <i class="bi bi-plus me-2"></i>{{ label }}
+    </a>
+</template>

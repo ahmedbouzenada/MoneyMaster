@@ -1,6 +1,4 @@
 <script setup>
-import Pagination from "../VueComponents/Pagination.vue";
-
 defineProps({
     clients: Object
 });
@@ -27,6 +25,3 @@ defineProps({
     </table>
     <pagination class="mt-6" :links="clients.meta.links"/>
 </template>
-
-<style>
-</style>
