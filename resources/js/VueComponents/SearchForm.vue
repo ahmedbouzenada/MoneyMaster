@@ -5,7 +5,6 @@
                 type="text"
                 class="form-control"
                 placeholder="Search..."
-                v-model="searchTerm"
             />
             <button class="btn btn-primary" type="submit">
                 <i class="bi bi-search"></i>
@@ -14,17 +13,5 @@
     </form>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            searchTerm: '',
-        };
-    },
-    methods: {
-        search() {
-            console.log('Search term:', this.searchTerm);
-        },
-    },
-};
+<script setup>
 </script>

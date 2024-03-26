@@ -1,15 +1,9 @@
-<script>
+<script setup>
 import Pagination from "../VueComponents/Pagination.vue";
 
-export default {
-    components: {
-        Pagination
-    },
-    props: {
-        clients: Object,
-    },
-}
-
+defineProps({
+    clients: Object
+});
 </script>
 
 <template>

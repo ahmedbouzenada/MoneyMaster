@@ -1,3 +1,15 @@
+<script setup>
+import Clients from '../../VueComponents/Clients.vue'
+import SearchForm from '../../VueComponents/SearchForm.vue'
+import CreateButton from '../../VueComponents/CreateButton.vue'
+import {Head} from '@inertiajs/vue3'
+
+defineProps(
+    {clients: Object}
+)
+
+</script>
+
 <template>
     <Head title="Clients"/>
     <div class="d-flex justify-content-between align-items-center mb-3">
@@ -10,14 +22,3 @@
     <Clients :clients></Clients>
 </template>
 
-<script setup>
-import Clients from '../../VueComponents/Clients.vue'
-import SearchForm from '../../VueComponents/SearchForm.vue'
-import CreateButton from '../../VueComponents/CreateButton.vue'
-import {Head} from '@inertiajs/vue3'
-
-defineProps(
-    {clients: Object}
-)
-
-</script>

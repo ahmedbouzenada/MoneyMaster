@@ -20,17 +20,12 @@
     <pagination class="mt-6" :links="debts.meta.links"/>
 </template>
 
-<script>
+<script setup>
 import Pagination from "@/VueComponents/Pagination.vue";
 
-export default {
-    components: {
-        Pagination
-    },
-    props: {
-        debts: Array,
-    },
-}
+defineProps(
+    {debts: Object}
+)
 </script>
 
 <style>

@@ -1,14 +1,7 @@
-<script>
+<script setup>
 import {Link} from '@inertiajs/vue3'
 
-export default {
-    components: {
-        Link
-    },
-    props: {
-        links: Object
-    }
-}
+defineProps({links: Object})
 </script>
 
 <template>
@@ -18,7 +11,8 @@ export default {
                 <li v-for="(link, p) in links" :key="p" class="page-item"
                     :class="{ disabled: link.url === null, active: link.active }">
                     <a v-if="link.url === null" class="page-link" v-html="link.label" aria-disabled="true"></a>
-                    <Link v-else class="page-link" :href="link.url" v-html="link.label"></Link>
+                    <Link v-else class="page-link" :href="link.url" v-html="link.label" preserve-scroll
+                          preserve-state></Link>
                 </li>
             </ul>
         </nav>

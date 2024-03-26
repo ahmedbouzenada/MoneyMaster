@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +13,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Index');
-});
+Route::inertia('/', 'Index');
 
 Route::resource('/clients', \App\Http\Controllers\ClientController::class);
 Route::resource('/payments', \App\Http\Controllers\PaymentController::class);

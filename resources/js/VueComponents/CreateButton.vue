@@ -4,17 +4,15 @@
     </a>
 </template>
 
-<script>
-export default {
-    props: {
-        createUrl: {
-            type: String,
-            required: true,
-        },
-        label: {
-            type: String,
-            default: 'Create',
-        },
+<script setup>
+defineProps({
+    createUrl: {
+        type: String,
+        required: true,
     },
-};
+    label: {
+        type: String,
+        default: 'Create',
+    },
+});
 </script>
