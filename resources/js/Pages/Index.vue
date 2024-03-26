@@ -1,8 +1,9 @@
 <script setup>
-import {Link} from "@inertiajs/vue3";
+import {Head, Link} from "@inertiajs/vue3";
 </script>
 
 <template>
+    <Head title="Home"></Head>
     <div class="container">
         <div class="p-5 bg-light rounded-3 shadow-sm">
             <div class="row">
