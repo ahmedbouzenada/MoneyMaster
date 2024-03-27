@@ -31,7 +31,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('clients.create');
+        return Inertia::render('Clients/Create');
     }
 
     /**
@@ -40,9 +40,7 @@ class ClientController extends Controller
     public function store(StoreClientRequest $request)
     {
         $client = Client::create($request->validated());
-
-        return redirect()->route('clients.show', $client->id)
-            ->with('success', 'Client created successfully.');
+        return to_route('clients.index');
     }
 
     /**
@@ -50,7 +48,8 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        return view('clients.show', compact('client'));
+        $client = ClientResource::make($client);
+        return Inertia::render('Clients/Show', compact('client'));
     }
 
     /**
@@ -58,7 +57,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        return view('clients.edit', compact('client'));
+        return Inertia::render('Clients/Update', compact('client'));
     }
 
     /**
@@ -67,8 +66,7 @@ class ClientController extends Controller
     public function update(UpdateClientRequest $request, Client $client)
     {
         $client->update($request->validated());
-        return redirect()->route('clients.show', $client->id)
-            ->with('success', 'Client updated successfully.');
+        return to_route('clients.show', compact('client'));
     }
 
     /**
@@ -77,8 +75,6 @@ class ClientController extends Controller
     public function destroy(Client $client)
     {
         $client->delete();
-
-        return redirect()->route('clients.index')
-            ->with('success', 'Client deleted successfully.');
+        return to_route('clients.index');
     }
 }

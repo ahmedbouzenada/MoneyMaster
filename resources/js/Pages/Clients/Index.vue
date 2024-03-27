@@ -1,8 +1,9 @@
 <script setup>
-import Clients from '../../VueComponents/Clients.vue'
-import CreateButton from '../../VueComponents/CreateButton.vue'
+import Clients from "@/Components/Clients/Clients.vue";
+import CreateButton from "@/Components/Shared/CreateButton.vue";
 import {Head} from "@inertiajs/vue3";
-import SearchForm from "@/VueComponents/SearchForm.vue";
+import SearchForm from "@/Components/Shared/SearchForm.vue";
+import PageHead from "@/Components/Shared/PageHead.vue";
 
 defineProps(
     {clients: Object}
@@ -12,10 +13,10 @@ defineProps(
 <template>
     <Head title="Clients"/>
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2><i class="fas fa-users me-2"></i>Clients</h2>
+        <PageHead icon="fas fa-users me-2" title="Clients"></PageHead>
         <div class="d-flex">
             <SearchForm :route="'/clients'" class="me-3"/>
-            <CreateButton create-url="/clients/create" label="Create Client"/>
+            <CreateButton create-url="/clients/create" label="Add Client"/>
         </div>
     </div>
     <Clients :clients></Clients>
