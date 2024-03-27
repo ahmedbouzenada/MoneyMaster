@@ -1,5 +1,5 @@
 <script setup>
-import Pagination from "@/VueComponents/Pagination.vue";
+import Pagination from "@/Components/Shared/Pagination.vue";
 
 defineProps(
     {debts: Object}

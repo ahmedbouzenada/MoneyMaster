@@ -1,7 +1,8 @@
 <script setup>
-import Payments from "@/VueComponents/Payments.vue";
+import Payments from "@/Components/Payments/Payments.vue";
 import {Head} from "@inertiajs/vue3";
-import SearchForm from "@/VueComponents/SearchForm.vue";
+import SearchForm from "@/Components/Shared/SearchForm.vue";
+import PageHead from "@/Components/Shared/PageHead.vue";
 
 defineProps(
     {
@@ -13,7 +14,7 @@ defineProps(
 <template>
     <Head title="Payments"/>
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2><i class="fas fa-money-bill-wave me-2"></i>Payments</h2>
+        <PageHead icon="fas fa-money-bill-wave me-2" title="Payments"></PageHead>
         <div class="d-flex">
             <SearchForm :route="'/payments'"/>
         </div>
