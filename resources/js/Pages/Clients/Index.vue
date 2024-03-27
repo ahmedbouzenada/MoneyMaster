@@ -13,7 +13,7 @@ defineProps(
 <template>
     <Head title="Clients"/>
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <PageHead icon="fas fa-users me-2" title="Clients"></PageHead>
+        <PageHead icon="fas fa-users" title="Clients"></PageHead>
         <div class="d-flex">
             <SearchForm :route="'/clients'" class="me-3"/>
             <CreateButton create-url="/clients/create" label="Add Client"/>

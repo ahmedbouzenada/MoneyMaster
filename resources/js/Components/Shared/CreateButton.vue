@@ -12,7 +12,8 @@ defineProps({
 </script>
 
 <template>
-    <a :href="createUrl" class="btn btn-primary">
-        <i class="fa-solid fa-plus me-2"></i>{{ label }}
+    <a :href="createUrl" class="btn btn-primary d-inline-flex align-items-center">
+        <i class="fas fa-plus me-2"></i>
+        <span>{{ label }}</span>
     </a>
 </template>

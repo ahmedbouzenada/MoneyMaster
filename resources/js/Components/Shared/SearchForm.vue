@@ -26,12 +26,17 @@ watch(
 </script>
 
 <template>
-    <form>
-        <input
-            type="text"
-            placeholder="Search..."
-            v-model="search"
-            class="form-control"
-        />
+    <form class="d-flex">
+        <div class="input-group">
+        <span class="input-group-text bg-white border-end-0">
+            <i class="fas fa-search"></i>
+        </span>
+            <input
+                type="text"
+                placeholder="Search..."
+                v-model="search"
+                class="form-control border-start-0 rounded-end"
+            />
+        </div>
     </form>
 </template>

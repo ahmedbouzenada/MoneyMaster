@@ -10,10 +10,10 @@ defineProps(
 <template>
     <div class="container my-5">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <ClientInfo :client></ClientInfo>
             </div>
-            <div class="col-md-8">
+            <div class="col">
                 <ClientDues title="Payments" :dues="client.payments"></ClientDues>
                 <ClientDues title="Debts" class="mt-4" :dues="client.debts"></ClientDues>
             </div>

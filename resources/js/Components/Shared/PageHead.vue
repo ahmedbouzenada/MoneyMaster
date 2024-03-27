@@ -8,9 +8,9 @@ defineProps(
 </script>
 
 <template>
-    <h2>
-        <i :class="icon"></i>
-        {{ title }}
+    <h2 class="d-flex align-items-center mb-4">
+        <i :class="`${icon} me-2`"></i>
+        <span>{{ title }}</span>
     </h2>
 </template>
 
