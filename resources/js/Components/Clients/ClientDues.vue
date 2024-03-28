@@ -1,4 +1,8 @@
 <script setup>
+import ViewButton from "@/Components/Shared/Buttons/ViewButton.vue";
+import EditButton from "@/Components/Shared/Buttons/EditButton.vue";
+import DeleteButton from "@/Components/Shared/Buttons/DeleteButton.vue";
+
 defineProps(
     {
         dues: Object,
@@ -26,9 +30,9 @@ defineProps(
                     </div>
                     <div>
                         <span class="badge bg-success rounded-pill me-2">{{ $filters.currency(due.amount) }}</span>
-                        <a href="#" class="btn btn-sm btn-primary me-1"><i class="fas fa-eye"></i></a>
-                        <a href="#" class="btn btn-sm btn-success me-1 text-white"><i class="fas fa-edit"></i></a>
-                        <a href="#" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>
+                        <ViewButton url="#"></ViewButton>
+                        <EditButton url="#"></EditButton>
+                        <DeleteButton url="#"></DeleteButton>
                     </div>
                 </li>
             </ul>

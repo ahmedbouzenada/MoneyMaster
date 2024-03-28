@@ -1,6 +1,8 @@
 <script setup>
 import Pagination from "@/Components/Shared/Pagination.vue";
-import {Link} from "@inertiajs/vue3";
+import ViewButton from "@/Components/Shared/Buttons/ViewButton.vue";
+import EditButton from "@/Components/Shared/Buttons/EditButton.vue";
+import DeleteButton from "@/Components/Shared/Buttons/DeleteButton.vue";
 
 defineProps({
     clients: Object
@@ -27,16 +29,9 @@ defineProps({
                     <td>{{ client.phone }}</td>
                     <td>{{ $filters.currency(client.balance) }}</td>
                     <td class="text-center">
-                        <Link class="btn btn-sm btn-primary me-1" :href="`/clients/${client.id}`" title="View">
-                            <i class="fas fa-eye"></i>
-                        </Link>
-                        <Link class="btn btn-sm btn-success me-1" :href="`/clients/${client.id}/edit`" title="Edit">
-                            <i class="fas fa-edit"></i>
-                        </Link>
-                        <Link class="btn btn-sm btn-danger" :href="`/clients/${client.id}`" method="delete" as="button"
-                              title="Delete">
-                            <i class="fas fa-trash-alt"></i>
-                        </Link>
+                        <ViewButton :url="`/clients/${client.id}`"></ViewButton>
+                        <EditButton :url="`/clients/${client.id}/edit`"></EditButton>
+                        <DeleteButton :url="`/clients/${client.id}`"></DeleteButton>
                     </td>
                 </tr>
                 </tbody>
