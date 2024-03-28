@@ -1,7 +1,6 @@
 <script setup>
 import Pagination from "@/Components/Shared/Pagination.vue";
 import ViewButton from "@/Components/Shared/Buttons/ViewButton.vue";
-import EditButton from "@/Components/Shared/Buttons/EditButton.vue";
 import DeleteButton from "@/Components/Shared/Buttons/DeleteButton.vue";
 
 let props = defineProps({
@@ -21,7 +20,6 @@ let props = defineProps({
                 <th scope="col">Phone</th>
                 <th scope="col">Balance</th>
                 <th scope="col" class="text-center"><i class="fas fa-eye"></i></th>
-                <th scope="col" class="text-center "><i class="fas fa-edit"></i></th>
                 <th scope="col" class="text-center "><i class="fas fa-trash-alt"></i></th>
             </tr>
             </thead>
@@ -37,9 +35,6 @@ let props = defineProps({
                 <td>{{ $filters.currency(client.balance) }}</td>
                 <td class="text-center">
                     <ViewButton :url="`/clients/${client.id}`"></ViewButton>
-                </td>
-                <td class="text-center">
-                    <EditButton :url="`/clients/${client.id}/edit`"></EditButton>
                 </td>
                 <td class="text-center">
                     <DeleteButton :url="`/clients/${client.id}`"></DeleteButton>
