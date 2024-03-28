@@ -1,6 +1,7 @@
 <script setup>
 import ClientInfo from "@/Components/Clients/ClientInfo.vue";
 import ClientDues from "@/Components/Clients/ClientDues.vue";
+import CloseButton from "@/Components/Shared/Buttons/CloseButton.vue";
 
 defineProps(
     {client: Object}
@@ -16,6 +17,9 @@ defineProps(
             <div class="col">
                 <ClientDues title="Payments" :dues="client.payments"></ClientDues>
                 <ClientDues title="Debts" class="mt-4" :dues="client.debts"></ClientDues>
+                <div class="d-grid mt-4">
+                    <CloseButton url="/clients"></CloseButton>
+                </div>
             </div>
         </div>
     </div>
