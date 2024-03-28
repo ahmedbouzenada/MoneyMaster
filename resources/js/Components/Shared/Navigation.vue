@@ -17,6 +17,11 @@ import {Link} from "@inertiajs/vue3";
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
+                        <Link class="nav-link" href="/dashboard" :class="{ 'active': $page.url === '/dashboard' }">
+                            <i class="fas fa-gauge-high me-2"></i>Dashboard
+                        </Link>
+                    </li>
+                    <li class="nav-item">
                         <Link class="nav-link" href="/clients" :class="{ 'active': $page.url.startsWith('/clients') }">
                             <i class="fas fa-users me-2"></i>Clients
                         </Link>

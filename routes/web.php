@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::inertia('/', 'Index');
+Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index']);
 
 Route::resource('/clients', \App\Http\Controllers\ClientController::class);
 Route::resource('/payments', \App\Http\Controllers\PaymentController::class);
