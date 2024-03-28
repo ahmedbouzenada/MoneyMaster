@@ -9,7 +9,7 @@ defineProps({
 </script>
 
 <template>
-    <Link class="btn btn-sm btn-primary me-1" :href="url">
+    <Link class="btn btn-sm btn-primary" :href="url">
         <i class="fas fa-eye"></i>
     </Link>
 </template>
