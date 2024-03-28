@@ -6,7 +6,7 @@ defineProps({
 </script>
 
 <template>
-    <button type="submit" class="btn btn-success me-2" :disabled="form.processing"><i
+    <button type="submit" class="btn btn-success" :disabled="form.processing"><i
         class="fa-solid fa-check me-2"></i>{{ text }}
     </button>
 </template>

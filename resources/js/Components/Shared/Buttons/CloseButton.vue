@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-    <Link :href="url" class="btn btn-secondary me-2"><i class="fa-solid fa-xmark me-2"></i>Close</Link>
+    <Link :href="url" class="btn btn-secondary"><i class="fa-solid fa-xmark me-2"></i>Close</Link>
 </template>
 
 <style scoped>
