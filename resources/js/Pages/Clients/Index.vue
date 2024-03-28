@@ -1,6 +1,6 @@
 <script setup>
 import Clients from "@/Components/Clients/Clients.vue";
-import CreateButton from "@/Components/Shared/CreateButton.vue";
+import CreateButton from "@/Components/Shared/Buttons/CreateButton.vue";
 import {Head} from "@inertiajs/vue3";
 import SearchForm from "@/Components/Shared/SearchForm.vue";
 import PageHead from "@/Components/Shared/PageHead.vue";
