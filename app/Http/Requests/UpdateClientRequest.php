@@ -26,7 +26,7 @@ class UpdateClientRequest extends FormRequest
             'lastname' => 'required|string|max:255',
             'email' => 'required|email|unique:clients,email,' . $this->client->id,
             'birthdate' => 'required|date',
-            'phone_number' => ['required' | 'regex:/^(05|06|07)\d{8}$/'],
+            'phone_number' => ['required', 'regex:/^(05|06|07)\d{8}$/'],
         ];
     }
 }
