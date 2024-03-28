@@ -1,7 +1,8 @@
 <script setup>
-import Chart from 'chart.js/auto';
-import {onMounted} from "vue";
 import DashboardInfo from "@/Components/Shared/DashboardInfo.vue";
+import DashboardChart from "@/Components/Shared/DashboardChart.vue";
+import {Head} from "@inertiajs/vue3";
+import PageHead from "@/Components/Shared/PageHead.vue";
 
 let props = defineProps({
     totalClients: Number,
@@ -10,36 +11,16 @@ let props = defineProps({
     totalMoney: Number,
     balance: Number,
 })
-
-onMounted(() => {
-    const data = [
-        {label: 'debts', percent: (props.totalDebts / props.totalMoney) * 100},
-        {label: 'payments', percent: (props.totalPayments / props.totalMoney) * 100},
-    ];
-    new Chart(
-        document.getElementById('payments/debts'),
-        {
-            type: 'doughnut',
-            data: {
-                labels: data.map(row => row.label),
-                datasets: [
-                    {
-                        label: '%',
-                        data: data.map(row => row.percent)
-                    }
-                ]
-            },
-            options: {
-                responsive: true
-            }
-        }
-    );
-});
-
+const data = [
+    {label: 'debts', value: (props.totalDebts / props.totalMoney) * 100},
+    {label: 'payments', value: (props.totalPayments / props.totalMoney) * 100},
+];
 </script>
 
 <template>
+    <Head title="Dashboard"></Head>
     <div class="container-fluid">
+        <PageHead icon="fas fa-gauge-high" title="Dashboard"></PageHead>
         <div class="row">
             <DashboardInfo icon="fas fa-users" :value="totalClients" description="Total Clients"
                            color="bg-primary"></DashboardInfo>
@@ -52,18 +33,16 @@ onMounted(() => {
         </div>
 
         <div class="row">
-            <div class="col-md-3">
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <i class="fas fa-chart-pie"></i> Debts and Payments
-                    </div>
-                    <div class="card-body">
-                        <canvas id="payments/debts"></canvas>
-                    </div>
-                </div>
-            </div>
+            <DashboardChart
+                title="Debts / Payments"
+                canvasId="deptsToPayments"
+                type="doughnut"
+                dataLabel="%"
+                :data="data"
+            ></DashboardChart>
         </div>
     </div>
+
 </template>
 
 <style scoped>
