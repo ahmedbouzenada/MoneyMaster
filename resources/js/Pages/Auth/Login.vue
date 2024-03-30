@@ -1,11 +1,9 @@
 <script setup>
 import Checkbox from '@/Components/Checkbox.vue';
-import GuestLayout from '@/Layouts/GuestLayout.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
 import {Head, Link, useForm} from '@inertiajs/vue3';
+import FormInputText from "@/Components/Shared/Forms/FormInputText.vue";
+import FormInputPassword from "@/Components/Shared/Forms/FormInputPassword.vue";
 
 defineProps({
     canResetPassword: {
@@ -30,65 +28,53 @@ const submit = () => {
 </script>
 
 <template>
-    <GuestLayout>
-        <Head title="Log in"/>
-
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-            {{ status }}
+    <Head title="Log in"/>
+    <div class="mb-4 alert alert-success" role="alert" v-if="status">
+        {{ status }}
+    </div>
+    <form @submit.prevent="submit" class="mb-4">
+        <div class="mb-3">
+            <FormInputText
+                :form
+                id="email"
+                title="Email"
+                v-model="form.email"
+            ></FormInputText>
         </div>
 
-        <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="email" value="Email"/>
+        <div class="mb-3">
+            <FormInputPassword
+                :form
+                id="password"
+                title="Password"
+                v-model="form.password"
+            ></FormInputPassword>
+        </div>
 
-                <TextInput
-                    id="email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    v-model="form.email"
-                    required
-                    autofocus
-                    autocomplete="username"
-                />
-
-                <InputError class="mt-2" :message="form.errors.email"/>
+        <div class="mb-3 d-flex justify-content-between">
+            <div class="form-check">
+                <Checkbox name="remember" v-model:checked="form.remember"/>
+                <span class="form-check-label">Remember me</span>
             </div>
 
-            <div class="mt-4">
-                <InputLabel for="password" value="Password"/>
-
-                <TextInput
-                    id="password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    v-model="form.password"
-                    required
-                    autocomplete="current-password"
-                />
-
-                <InputError class="mt-2" :message="form.errors.password"/>
-            </div>
-
-            <div class="block mt-4">
-                <label class="flex items-center">
-                    <Checkbox name="remember" v-model:checked="form.remember"/>
-                    <span class="ms-2 text-sm text-gray-600">Remember me</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
+            <div v-if="canResetPassword">
                 <Link
-                    v-if="canResetPassword"
                     :href="route('password.request')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    class="text-decoration-underline text-muted hover-link"
                 >
                     Forgot your password?
                 </Link>
-
-                <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Log in
-                </PrimaryButton>
             </div>
-        </form>
-    </GuestLayout>
+        </div>
+
+        <div>
+            <PrimaryButton
+                class="d-block mx-auto w-100"
+                :class="{ 'opacity-25': form.processing }"
+                :disabled="form.processing"
+            >
+                Log in
+            </PrimaryButton>
+        </div>
+    </form>
 </template>

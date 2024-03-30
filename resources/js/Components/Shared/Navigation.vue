@@ -1,5 +1,10 @@
 <script setup>
-import {Link} from "@inertiajs/vue3";
+import {Link, usePage} from "@inertiajs/vue3";
+import {computed} from "vue";
+
+const page = usePage()
+
+const user = computed(() => page.props.auth.user)
 </script>
 
 <template>
@@ -14,7 +19,20 @@ import {Link} from "@inertiajs/vue3";
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" v-if="!user">
+                <li class="nav-item">
+
+                    <Link class="nav-link" href="/login" :class="{ 'active': $page.url === '/login' }">
+                        <i class="fa-solid fa-right-to-bracket me-2"></i>Login
+                    </Link>
+                </li>
+                <li class="nav-item">
+                    <Link class="nav-link" href="/register" :class="{ 'active': $page.url === '/register' }">
+                        <i class="fas fa-user-plus me-2"></i>Register
+                    </Link>
+                </li>
+            </ul>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" v-if="user">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <Link class="nav-link" href="/dashboard" :class="{ 'active': $page.url === '/dashboard' }">
@@ -42,7 +60,7 @@ import {Link} from "@inertiajs/vue3";
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-user me-2"></i>Username
+                            <i class="fas fa-user me-2"></i>{{ user.name }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li>

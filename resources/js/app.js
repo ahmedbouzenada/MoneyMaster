@@ -5,7 +5,7 @@ import {createInertiaApp} from '@inertiajs/vue3';
 import {ZiggyVue} from '../../vendor/tightenco/ziggy';
 import 'bootstrap';
 import '@popperjs/core';
-import Layout from "@/Components/Shared/Layout.vue";
+import Layout from "@/Layouts/Layout.vue";
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
