@@ -1,13 +1,17 @@
 <script setup>
 defineProps({
     form: Object,
-    text: String
+    text: String,
+    icon: {
+        type: String,
+        default: 'fa-solid fa-check'
+    }
 })
 </script>
 
 <template>
     <button type="submit" class="btn btn-success" :disabled="form.processing"><i
-        class="fa-solid fa-check me-2"></i>{{ text }}
+        :class="`${icon} me-2`"></i>{{ text }}
     </button>
 </template>
 

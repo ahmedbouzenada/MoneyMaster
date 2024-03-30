@@ -1,10 +1,8 @@
 <script setup>
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
 import {useForm} from '@inertiajs/vue3';
 import {ref} from 'vue';
+import FormInputPassword from "@/Components/Shared/Forms/FormInputPassword.vue";
+import SaveButton from "@/Components/Shared/Buttons/SaveButton.vue";
 
 const passwordInput = ref(null);
 const currentPasswordInput = ref(null);
@@ -34,72 +32,51 @@ const updatePassword = () => {
 </script>
 
 <template>
-    <section>
-        <header>
-            <h2 class="text-lg font-medium text-gray-900">Update Password</h2>
+    <h2 class="text-lg font-medium text-gray-900">Update Password</h2>
+    <p class="mt-1 text-sm text-gray-600">
+        Ensure your account is using a long, random password to stay secure.
+    </p>
 
-            <p class="mt-1 text-sm text-gray-600">
-                Ensure your account is using a long, random password to stay secure.
-            </p>
-        </header>
 
-        <form @submit.prevent="updatePassword" class="mt-6 space-y-6">
+    <form @submit.prevent="updatePassword" class="mt-6 space-y-6">
+        <div class="row g-3">
             <div>
-                <InputLabel for="current_password" value="Current Password"/>
-
-                <TextInput
+                <FormInputPassword
+                    :form
                     id="current_password"
-                    ref="currentPasswordInput"
+                    title="Current Password"
                     v-model="form.current_password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    autocomplete="current-password"
-                />
-
-                <InputError :message="form.errors.current_password" class="mt-2"/>
+                ></FormInputPassword>
             </div>
 
             <div>
-                <InputLabel for="password" value="New Password"/>
-
-                <TextInput
+                <FormInputPassword
+                    :form
                     id="password"
-                    ref="passwordInput"
+                    title="New Password"
                     v-model="form.password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    autocomplete="new-password"
-                />
-
-                <InputError :message="form.errors.password" class="mt-2"/>
+                ></FormInputPassword>
             </div>
 
             <div>
-                <InputLabel for="password_confirmation" value="Confirm Password"/>
-
-                <TextInput
+                <FormInputPassword
+                    :form
                     id="password_confirmation"
+                    title="Confirm Password"
                     v-model="form.password_confirmation"
-                    type="password"
-                    class="mt-1 block w-full"
-                    autocomplete="new-password"
-                />
-
-                <InputError :message="form.errors.password_confirmation" class="mt-2"/>
+                ></FormInputPassword>
             </div>
 
-            <div class="flex items-center gap-4">
-                <PrimaryButton :disabled="form.processing">Save</PrimaryButton>
+            <SaveButton
+                :form
+                text="Save"
+            ></SaveButton>
 
-                <Transition
-                    enter-active-class="transition ease-in-out"
-                    enter-from-class="opacity-0"
-                    leave-active-class="transition ease-in-out"
-                    leave-to-class="opacity-0"
-                >
-                    <p v-if="form.recentlySuccessful" class="text-sm text-gray-600">Saved.</p>
-                </Transition>
+            <div v-if="form.recentlySuccessful" class="alert alert-success d-flex align-items-center mb-0"
+                 role="alert">
+                <i class="fas fa-check-circle me-2"></i>
+                <span>Saved.</span>
             </div>
-        </form>
-    </section>
+        </div>
+    </form>
 </template>

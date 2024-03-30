@@ -10,7 +10,7 @@ const user = computed(() => page.props.auth.user)
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container">
-            <Link class="navbar-brand d-flex align-items-center" href="/dashboard">
+            <Link class="navbar-brand d-flex align-items-center" href="/">
                 <i class="fas fa-money-check-alt fa-2x me-2"></i>
                 <span class="fw-bold">MoneyMaster</span>
             </Link>
@@ -67,10 +67,7 @@ const user = computed(() => page.props.auth.user)
                                 <Link class="dropdown-item" href="/profile"><i class="fas fa-user-circle me-2"></i>Profile
                                 </Link>
                             </li>
-                            <li>
-                                <Link class="dropdown-item" href="/settings"><i class="fas fa-cog me-2"></i>Settings
-                                </Link>
-                            </li>
+
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

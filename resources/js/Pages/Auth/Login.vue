@@ -1,9 +1,9 @@
 <script setup>
-import Checkbox from '@/Components/Checkbox.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
 import {Head, Link, useForm} from '@inertiajs/vue3';
 import FormInputText from "@/Components/Shared/Forms/FormInputText.vue";
 import FormInputPassword from "@/Components/Shared/Forms/FormInputPassword.vue";
+import FormInputCheckBox from "@/Components/Shared/Forms/FormInputCheckBox.vue";
+import ConfirmButton from "@/Components/Shared/Buttons/ConfirmButton.vue";
 
 defineProps({
     canResetPassword: {
@@ -21,7 +21,7 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route('login'), {
+    form.post('login', {
         onFinish: () => form.reset('password'),
     });
 };
@@ -51,12 +51,17 @@ const submit = () => {
             ></FormInputPassword>
         </div>
 
-        <div class="mb-3 d-flex justify-content-between">
-            <div class="form-check">
-                <Checkbox name="remember" v-model:checked="form.remember"/>
-                <span class="form-check-label">Remember me</span>
-            </div>
+        <div class="mb-3">
+            <FormInputCheckBox
+                :form
+                id="remember"
+                title="Remember me"
+                v-model="form.remember"
+            ></FormInputCheckBox>
+        </div>
 
+
+        <div class="mb-3">
             <div v-if="canResetPassword">
                 <Link
                     :href="route('password.request')"
@@ -67,14 +72,10 @@ const submit = () => {
             </div>
         </div>
 
-        <div>
-            <PrimaryButton
-                class="d-block mx-auto w-100"
-                :class="{ 'opacity-25': form.processing }"
-                :disabled="form.processing"
-            >
-                Log in
-            </PrimaryButton>
-        </div>
+        <ConfirmButton
+            :form
+            text="Log In"
+            icon="fa-solid fa-right-to-bracket"
+        ></ConfirmButton>
     </form>
 </template>
