@@ -1,4 +1,6 @@
 <script setup>
+import {Link} from "@inertiajs/vue3";
+
 defineProps({
     createUrl: {
         type: String,
@@ -12,8 +14,8 @@ defineProps({
 </script>
 
 <template>
-    <a :href="createUrl" class="btn btn-primary d-inline-flex align-items-center">
+    <Link :href="createUrl" class="btn btn-primary d-inline-flex align-items-center">
         <i class="fas fa-plus me-2"></i>
         <span>{{ label }}</span>
-    </a>
+    </Link>
 </template>
