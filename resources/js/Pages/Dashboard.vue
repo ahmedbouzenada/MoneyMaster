@@ -12,8 +12,8 @@ let props = defineProps({
     balance: Number,
 })
 const data = [
-    {label: 'debts', value: (props.totalDebts / props.totalMoney) * 100},
-    {label: 'payments', value: (props.totalPayments / props.totalMoney) * 100},
+    {label: 'debts', value: props.totalMoney === 0 ? 0 : (props.totalDebts / props.totalMoney) * 100},
+    {label: 'payments', value: props.totalMoney === 0 ? 0 : (props.totalPayments / props.totalMoney) * 100},
 ];
 </script>
 
@@ -22,7 +22,7 @@ const data = [
     <div class="container-fluid">
         <PageHead icon="fas fa-gauge-high" title="Dashboard"></PageHead>
         <div class="row">
-            <DashboardInfo icon="fas fa-users" :value="totalClients" description="Total Clients"
+            <DashboardInfo icon="fas fa-users" :value="totalClients.toString()" description="Total Clients"
                            color="bg-primary"></DashboardInfo>
             <DashboardInfo icon="fas fa-money-bill-wave" :value="$filters.currency(totalPayments)"
                            description="Total Payments" color="bg-success"></DashboardInfo>

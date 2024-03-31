@@ -12,8 +12,8 @@ class DashboardController extends Controller
     public function index()
     {
         $totalClients = Client::count();
-        $totalPayments = Payment::select('amount')->sum('amount');
-        $totalDebts = Debt::select('amount')->sum('amount');
+        $totalPayments = floatval(Payment::select('amount')->sum('amount'));
+        $totalDebts = floatval(Debt::select('amount')->sum('amount'));
         $totalMoney = $totalDebts + $totalPayments;
         $balance = $totalPayments - $totalDebts;
         return Inertia::render('Dashboard', [

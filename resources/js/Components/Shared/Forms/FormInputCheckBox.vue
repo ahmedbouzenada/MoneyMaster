@@ -5,7 +5,7 @@ let props = defineProps({
     form: Object,
     id: String,
     title: String,
-    modelValue: String
+    modelValue: Boolean
 })
 const emit = defineEmits(['update:modelValue'])
 const model = computed({

@@ -6,6 +6,9 @@ import DeleteButton from "@/Components/Shared/Buttons/DeleteButton.vue";
 let props = defineProps({
     clients: Object
 });
+const balanceStyle = (balance) => {
+    return balance < 0 ? 'negative-balance' : 'positive-balance'
+};
 </script>
 
 <template>
@@ -32,7 +35,7 @@ let props = defineProps({
                 <td>{{ client.name }}</td>
                 <td>{{ client.email }}</td>
                 <td>{{ client.phone }}</td>
-                <td>{{ $filters.currency(client.balance) }}</td>
+                <td><span :class="balanceStyle(client.balance)">{{ $filters.currency(client.balance) }}</span></td>
                 <td class="text-center">
                     <ViewButton :url="`/clients/${client.id}`"></ViewButton>
                 </td>
