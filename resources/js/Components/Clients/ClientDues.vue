@@ -29,7 +29,7 @@ defineProps(
                         <small class="text-muted">{{ due.date }}</small>
                     </div>
                     <div>
-                        <span class="badge bg-success rounded-pill me-2">{{ $filters.currency(due.amount) }}</span>
+                      <span class="me-2">{{ $filters.currency(due.amount) }}</span>
                         <ViewButton url="#"></ViewButton>
                         <EditButton url="#"></EditButton>
                         <DeleteButton url="#"></DeleteButton>

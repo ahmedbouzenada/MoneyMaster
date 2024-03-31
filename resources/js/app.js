@@ -23,7 +23,11 @@ createInertiaApp({
             .use(ZiggyVue)
         app.config.globalProperties.$filters = {
             currency(value) {
-                return 'DZD ' + new Intl.NumberFormat('ar-DZ').format(value);
+                const numberFormatter = new Intl.NumberFormat('fr-DZ', {
+                    style: 'currency',
+                    currency: 'DZD',
+                });
+                return numberFormatter.format(value);
             },
         }
         app.mount(el);

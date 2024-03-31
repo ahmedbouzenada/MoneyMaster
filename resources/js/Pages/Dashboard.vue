@@ -1,6 +1,5 @@
 <script setup>
 import DashboardInfo from "@/Components/Shared/DashboardInfo.vue";
-import DashboardChart from "@/Components/Shared/DashboardChart.vue";
 import {Head} from "@inertiajs/vue3";
 import PageHead from "@/Components/Shared/PageHead.vue";
 
@@ -10,6 +9,8 @@ let props = defineProps({
     totalDebts: Number,
     totalMoney: Number,
     balance: Number,
+    averageDailyPayments: Number,
+    averageDailyDebts: Number
 })
 const data = [
     {label: 'debts', value: props.totalMoney === 0 ? 0 : (props.totalDebts / props.totalMoney) * 100},
@@ -30,16 +31,10 @@ const data = [
                            description="Total Debts" color="bg-danger"></DashboardInfo>
             <DashboardInfo icon="fas fa-balance-scale" :value="$filters.currency(balance)"
                            description="Global Balance" color="bg-warning"></DashboardInfo>
-        </div>
-
-        <div class="row">
-            <DashboardChart
-                title="Debts / Payments"
-                canvasId="deptsToPayments"
-                type="doughnut"
-                dataLabel="%"
-                :data="data"
-            ></DashboardChart>
+            <DashboardInfo icon="fa-solid fa-coins" :value="$filters.currency(averageDailyPayments)"
+                           description="Daily Payments Average" color="bg-success"></DashboardInfo>
+            <DashboardInfo icon="fa-solid fa-piggy-bank" :value="$filters.currency(averageDailyDebts)"
+                           description="Daily Debts Average" color="bg-danger"></DashboardInfo>
         </div>
     </div>
 
