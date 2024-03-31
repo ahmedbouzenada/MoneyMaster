@@ -1,7 +1,8 @@
 <script setup>
 import {Head, useForm} from '@inertiajs/vue3';
 import FormInputText from "@/Components/Shared/Forms/FormInputText.vue";
-import ConfirmButton from "@/Components/Shared/Buttons/ConfirmButton.vue";
+import SubmitButton from "@/Components/Shared/Buttons/SubmitButton.vue";
+import PageHead from "@/Components/Shared/PageHead.vue";
 
 defineProps({
     status: {
@@ -20,7 +21,7 @@ const submit = () => {
 
 <template>
     <Head title="Forgot Password"/>
-
+    <PageHead title="Forgot Password" icon="fa-solid fa-key"></PageHead>
     <div class="mb-4 text-sm text-gray-600">
         Forgot your password? No problem. Just let us know your email address and we will email you a password reset
         link that will allow you to choose a new one.
@@ -41,11 +42,11 @@ const submit = () => {
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <ConfirmButton
+            <SubmitButton
                 :form
                 text="Email Password Reset Link"
                 icon="fa-solid fa-envelope"
-            ></ConfirmButton>
+            ></SubmitButton>
         </div>
     </form>
 </template>

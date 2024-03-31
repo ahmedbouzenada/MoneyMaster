@@ -2,7 +2,8 @@
 import {Head, useForm} from '@inertiajs/vue3';
 import FormInputText from "@/Components/Shared/Forms/FormInputText.vue";
 import FormInputPassword from "@/Components/Shared/Forms/FormInputPassword.vue";
-import ConfirmButton from "@/Components/Shared/Buttons/ConfirmButton.vue";
+import SubmitButton from "@/Components/Shared/Buttons/SubmitButton.vue";
+import PageHead from "@/Components/Shared/PageHead.vue";
 
 const props = defineProps({
     email: {
@@ -31,7 +32,7 @@ const submit = () => {
 
 <template>
     <Head title="Reset Password"/>
-
+  <PageHead title="Reset Password" icon="fa-solid fa-lock-open"></PageHead>
     <form @submit.prevent="submit">
         <div>
             <FormInputText
@@ -61,11 +62,11 @@ const submit = () => {
             ></FormInputPassword>
         </div>
         <div class="flex items-center justify-end mt-4">
-            <ConfirmButton
+          <SubmitButton
                 :form
                 text="Reset Password"
                 icon="fa-solid fa-gear"
-            ></ConfirmButton>
+          ></SubmitButton>
         </div>
     </form>
 </template>

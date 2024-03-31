@@ -1,8 +1,9 @@
 <script setup>
 import {computed} from 'vue';
 import {Head, useForm} from '@inertiajs/vue3';
-import ConfirmButton from "@/Components/Shared/Buttons/ConfirmButton.vue";
+import SubmitButton from "@/Components/Shared/Buttons/SubmitButton.vue";
 import LogOutButton from "@/Components/Shared/Buttons/LogOutButton.vue";
+import PageHead from "@/Components/Shared/PageHead.vue";
 
 const props = defineProps({
     status: {
@@ -21,7 +22,7 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
 
 <template>
     <Head title="Email Verification"/>
-
+  <PageHead title="Email Verification" icon="fa-solid fa-envelope-circle-check"></PageHead>
     <div class="mb-4 text-sm text-gray-600">
         Thanks for signing up! Before getting started, could you verify your email address by clicking on the link
         we just emailed to you? If you didn't receive the email, we will gladly send you another.
@@ -33,12 +34,12 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
 
     <form @submit.prevent="submit">
         <div class="mt-4 flex items-center justify-between">
-            <ConfirmButton
+          <SubmitButton
                 :form
                 text="Resend Verification Email"
                 icon="fa-solid fa-envelope-circle-check"
                 class="me-2"
-            ></ConfirmButton>
+          ></SubmitButton>
             <LogOutButton></LogOutButton>
         </div>
     </form>

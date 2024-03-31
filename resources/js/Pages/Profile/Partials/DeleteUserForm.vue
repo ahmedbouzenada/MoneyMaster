@@ -4,6 +4,7 @@ import SecondaryButton from '@/Components/SecondaryButton.vue';
 import {useForm} from '@inertiajs/vue3';
 import {ref} from 'vue';
 import FormInputPassword from "@/Components/Shared/Forms/FormInputPassword.vue";
+import PageHead from "@/Components/Shared/PageHead.vue";
 
 const confirmingUserDeletion = ref(false);
 
@@ -30,8 +31,7 @@ const closeModal = () => {
 </script>
 
 <template>
-
-    <h2 class="text-lg font-medium text-gray-900">Delete Account</h2>
+    <PageHead title="Delete Account" icon="fa-solid fa-user-minus"></PageHead>
 
     <p class="mt-1 text-sm text-gray-600">
         Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting
