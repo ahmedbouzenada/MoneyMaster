@@ -35,7 +35,7 @@ const submit = () => {
         <div class="flex justify-end mt-4">
           <SubmitButton
                 :form
-                text="Confirm"
+                label="Confirm"
           ></SubmitButton>
         </div>
     </form>

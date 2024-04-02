@@ -1,9 +1,9 @@
 <script setup>
 import {useForm, usePage} from '@inertiajs/vue3';
-import SaveButton from "@/Components/Shared/Buttons/SaveButton.vue";
 import FormInputText from "@/Components/Shared/Forms/FormInputText.vue";
 import FormInputEmail from "@/Components/Shared/Forms/FormInputEmail.vue";
 import PageHead from "@/Components/Shared/PageHead.vue";
+import SubmitButton from "@/Components/Shared/Buttons/SubmitButton.vue";
 
 defineProps({
   mustVerifyEmail: {
@@ -49,10 +49,11 @@ const form = useForm({
         ></FormInputEmail>
       </div>
 
-      <SaveButton
+        <SubmitButton
           :form
-          text="Save"
-      ></SaveButton>
+          label="Save"
+          icon="fa-solid fa-floppy-disk"
+        ></SubmitButton>
 
       <div v-if="form.recentlySuccessful" class="alert alert-success d-flex align-items-center mb-0"
            role="alert">

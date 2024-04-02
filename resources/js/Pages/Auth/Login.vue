@@ -76,7 +76,7 @@ const submit = () => {
 
     <SubmitButton
         :form
-        text="Log In"
+        label="Log In"
         icon="fa-solid fa-right-to-bracket"
     ></SubmitButton>
   </form>

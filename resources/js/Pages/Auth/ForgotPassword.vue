@@ -44,7 +44,7 @@ const submit = () => {
         <div class="flex items-center justify-end mt-4">
             <SubmitButton
                 :form
-                text="Email Password Reset Link"
+                label="Email Password Reset Link"
                 icon="fa-solid fa-envelope"
             ></SubmitButton>
         </div>

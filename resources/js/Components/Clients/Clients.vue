@@ -1,7 +1,7 @@
 <script setup>
 import Pagination from "@/Components/Shared/Pagination.vue";
-import ViewButton from "@/Components/Shared/Buttons/ViewButton.vue";
-import DeleteButton from "@/Components/Shared/Buttons/DeleteButton.vue";
+import ViewButton from "@/Components/Shared/Buttons/Links/ViewButton.vue";
+import DeleteButton from "@/Components/Shared/Buttons/Links/DeleteButton.vue";
 
 let props = defineProps({
     clients: Object
@@ -40,7 +40,7 @@ const balanceStyle = (balance) => {
                     <ViewButton :url="`/clients/${client.id}`"></ViewButton>
                 </td>
                 <td class="text-center">
-                    <DeleteButton :url="`/clients/${client.id}`"></DeleteButton>
+                    <DeleteButton :url="`/clients/${client.id}`" item="client"></DeleteButton>
                 </td>
             </tr>
             </tbody>

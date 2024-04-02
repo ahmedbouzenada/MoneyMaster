@@ -16,6 +16,6 @@ defineProps({
 <template>
     <Link :href="createUrl" class="btn btn-primary d-inline-flex align-items-center">
         <i class="fas fa-plus me-2"></i>
-        <span>{{ label }}</span>
+        {{ label }}
     </Link>
 </template>

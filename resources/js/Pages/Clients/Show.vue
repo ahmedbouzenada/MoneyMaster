@@ -1,7 +1,7 @@
 <script setup>
 import ClientInfo from "@/Components/Clients/ClientInfo.vue";
 import ClientDues from "@/Components/Clients/ClientDues.vue";
-import CloseButton from "@/Components/Shared/Buttons/CloseButton.vue";
+import CloseButton from "@/Components/Shared/Buttons/Links/CloseButton.vue";
 import {Head} from "@inertiajs/vue3";
 import PageHead from "@/Components/Shared/PageHead.vue";
 

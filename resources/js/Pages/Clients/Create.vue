@@ -1,11 +1,12 @@
 <script setup>
 import {Head, useForm} from "@inertiajs/vue3";
 import PageHead from "@/Components/Shared/PageHead.vue";
-import CloseButton from "@/Components/Shared/Buttons/CloseButton.vue";
+import CloseButton from "@/Components/Shared/Buttons/Links/CloseButton.vue";
 import FormInputText from "@/Components/Shared/Forms/FormInputText.vue";
 import FormInputEmail from "@/Components/Shared/Forms/FormInputEmail.vue";
 import FormInputDate from "@/Components/Shared/Forms/FormInputDate.vue";
-import SaveButton from "@/Components/Shared/Buttons/SaveButton.vue";
+import SubmitButton from "@/Components/Shared/Buttons/SubmitButton.vue";
+
 
 let form = useForm({
     firstname: '',
@@ -51,7 +52,7 @@ let form = useForm({
         </div>
         <div class="row mt-3">
             <div class="col-6 d-flex">
-                <SaveButton :form text="Save" class="flex-grow-1 me-2"></SaveButton>
+                <SubmitButton :form label="Save" icon="fa-solid fa-floppy-disk" class="flex-grow-1 me-2"></SubmitButton>
                 <CloseButton url="/clients" class="flex-grow-1"></CloseButton>
             </div>
         </div>

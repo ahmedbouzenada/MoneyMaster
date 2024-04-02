@@ -2,7 +2,7 @@
 import {computed} from 'vue';
 import {Head, useForm} from '@inertiajs/vue3';
 import SubmitButton from "@/Components/Shared/Buttons/SubmitButton.vue";
-import LogOutButton from "@/Components/Shared/Buttons/LogOutButton.vue";
+import LogOutButton from "@/Components/Shared/Buttons/Links/LogOutButton.vue";
 import PageHead from "@/Components/Shared/PageHead.vue";
 
 const props = defineProps({
@@ -36,7 +36,7 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
         <div class="mt-4 flex items-center justify-between">
           <SubmitButton
                 :form
-                text="Resend Verification Email"
+                label="Resend Verification Email"
                 icon="fa-solid fa-envelope-circle-check"
                 class="me-2"
           ></SubmitButton>

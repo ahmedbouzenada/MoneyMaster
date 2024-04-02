@@ -1,10 +1,11 @@
 <script setup>
-import DangerButton from '@/Components/DangerButton.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
+import DangerButton from "@/Components/Shared/Buttons/DangerButton.vue";
 import {useForm} from '@inertiajs/vue3';
 import {ref} from 'vue';
 import FormInputPassword from "@/Components/Shared/Forms/FormInputPassword.vue";
 import PageHead from "@/Components/Shared/PageHead.vue";
+import CloseButton from "@/Components/Shared/Buttons/Links/CloseButton.vue";
+import SubmitButton from "@/Components/Shared/Buttons/SubmitButton.vue";
 
 const confirmingUserDeletion = ref(false);
 
@@ -38,7 +39,7 @@ const closeModal = () => {
         your account, please download any data or information that you wish to retain.
     </p>
 
-    <DangerButton @click="confirmUserDeletion">Delete Account</DangerButton>
+    <DangerButton @click="confirmUserDeletion" label="Delete Account"></DangerButton>
 
     <div class="modal-dialog mt-4" v-if="confirmingUserDeletion">
         <div class="modal-content">
@@ -59,14 +60,15 @@ const closeModal = () => {
                 </div>
             </div>
             <div class="modal-footer">
-                <SecondaryButton @click="closeModal" class="me-2">Cancel</SecondaryButton>
-
-                <DangerButton
-                    :disabled="form.processing"
+                <CloseButton @click="closeModal" preserve-scroll class="me-2"></CloseButton>
+                <SubmitButton
+                    :form
+                    label="Delete Account"
+                    icon="fa-solid fa-trash"
+                    btn-style="btn btn-danger"
                     @click="deleteUser"
-                >
-                    Delete Account
-                </DangerButton>
+                ></SubmitButton>
+
             </div>
         </div>
     </div>

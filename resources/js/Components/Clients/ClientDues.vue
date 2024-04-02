@@ -1,7 +1,7 @@
 <script setup>
-import ViewButton from "@/Components/Shared/Buttons/ViewButton.vue";
-import EditButton from "@/Components/Shared/Buttons/EditButton.vue";
-import DeleteButton from "@/Components/Shared/Buttons/DeleteButton.vue";
+import ViewButton from "@/Components/Shared/Buttons/Links/ViewButton.vue";
+import EditButton from "@/Components/Shared/Buttons/Links/EditButton.vue";
+import DeleteButton from "@/Components/Shared/Buttons/Links/DeleteButton.vue";
 
 defineProps(
     {

@@ -69,7 +69,7 @@ const submit = () => {
 
     <SubmitButton
         :form
-        text="Register"
+        label="Register"
         icon="fas fa-user-plus"
     ></SubmitButton>
 
