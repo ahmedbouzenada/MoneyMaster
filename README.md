@@ -27,6 +27,10 @@ To get started with MoneyMaster, follow these simple steps:
 
 1. Clone the repository: `git clone https://github.com/ahmedbouzenada/MoneyMaster.git`
 2. Install dependencies: `npm install`
-3. Configure the application by updating the `.env` file with your environment variables.
-4. Start the development server: `npm run dev`
-5. Open your web browser and navigate to `http://localhost:8000` to access MoneyMaster.
+3. Update artisan: `composer update`
+4. Configure the application by updating the `.env` file with your environment variables.
+5. generate the application key: `php artisan key:generate`
+6. run the db migration: `php artisan migrate`
+7. Start the php development server: `php artisan serve`
+8. Start the development server: `npm run dev`
+9. Open your web browser and navigate to `http://localhost:8000` to access MoneyMaster.
