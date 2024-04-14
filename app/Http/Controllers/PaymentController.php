@@ -47,7 +47,8 @@ class PaymentController extends Controller
     public function show(Payment $payment)
     {
 //        $payment->date = Carbon::parse($payment->date)->format('d F Y');
-        return view('payments.show', compact('payment'));
+        $payment = new PaymentResource($payment);
+        return Inertia::render('Payments/Show', compact('payment'));
     }
 
     /**

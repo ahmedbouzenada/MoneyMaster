@@ -19,7 +19,6 @@ const balanceStyle = (balance) => {
                 <i class="fa-solid fa-user me-2"></i>{{ client.name }}
             </h5>
             <p class="card-text mb-1"><i class="fa-solid fa-at me-2 "></i>{{ client.email }}</p>
-            <p class="card-text mb-1"><i class="fa-solid fa-at me-2 "></i>{{ client.email }}</p>
             <p class="card-text mb-1"><i class="fa-regular fa-calendar me-2"></i>{{ client.birth_date }}</p>
             <p class="card-text mb-1"><i class="fa-solid fa-phone me-2"></i>{{ client.phone }}</p>
             <p class="card-text"
