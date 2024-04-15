@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePaymentRequest;
 use App\Http\Requests\UpdatePaymentRequest;
+use App\Http\Resources\ClientResource;
 use App\Http\Resources\PaymentResource;
 use App\Models\Client;
 use App\Models\Payment;
@@ -28,7 +29,8 @@ class PaymentController extends Controller
     public function create(Request $request)
     {
         $client = Client::findOrfail($request->input('client_id'));
-        return view('payments.create', compact('client'));
+        $client = ClientResource::make($client);
+        return Inertia::render('Payments/Create', compact('client'));
     }
 
     /**
@@ -38,7 +40,7 @@ class PaymentController extends Controller
     {
         $payment_data = array_merge($request->validated(), ['reference_number' => Str::uuid()]);
         Payment::create($payment_data);
-        return redirect()->route('clients.show', $request->client_id)->with('success', 'Payment created successfully.');
+        return to_route('clients.show', $request->input('client_id'));
     }
 
     /**
@@ -46,8 +48,7 @@ class PaymentController extends Controller
      */
     public function show(Payment $payment)
     {
-//        $payment->date = Carbon::parse($payment->date)->format('d F Y');
-        $payment = new PaymentResource($payment);
+        $payment = PaymentResource::make($payment);
         return Inertia::render('Payments/Show', compact('payment'));
     }
 
@@ -75,6 +76,6 @@ class PaymentController extends Controller
     {
         $client = $payment->client;
         $payment->delete();
-        return redirect()->route('clients.show', $client)->with('success', 'Payment deleted successfully');
+        return to_route('clients.show', $client->id)->with('success', 'Payment deleted successfully.');
     }
 }

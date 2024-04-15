@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreDebtRequest;
 use App\Http\Requests\UpdateDebtRequest;
+use App\Http\Resources\ClientResource;
 use App\Http\Resources\DebtResource;
 use App\Models\Client;
 use App\Models\Debt;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
 
@@ -24,10 +26,11 @@ class DebtController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(\Illuminate\Http\Request $request)
+    public function create(Request $request)
     {
         $client = Client::findOrfail($request->input('client_id'));
-        return view('debts.create', compact('client'));
+        $client = ClientResource::make($client);
+        return Inertia::render('Debts/Create', compact('client'));
     }
 
     /**
@@ -37,7 +40,7 @@ class DebtController extends Controller
     {
         $debt_data = array_merge($request->validated(), ['reference_number' => Str::uuid()]);
         Debt::create($debt_data);
-        return redirect()->route('clients.show', $request->client_id)->with('success', 'Deby created successfully.');
+        return to_route('clients.show', $request->input('client_id'));
     }
 
     /**
@@ -45,7 +48,8 @@ class DebtController extends Controller
      */
     public function show(Debt $debt)
     {
-        return view('debts.show', compact('debt'));
+        $debt = DebtResource::make($debt);
+        return Inertia::render('Debts/Show', compact('debt'));
     }
 
     /**

@@ -1,14 +1,20 @@
 <script setup>
 import ViewButton from "@/Components/Shared/Buttons/Links/ViewButton.vue";
-import EditButton from "@/Components/Shared/Buttons/Links/EditButton.vue";
 import DeleteButton from "@/Components/Shared/Buttons/Links/DeleteButton.vue";
+import CreateButton from "@/Components/Shared/Buttons/Links/CreateButton.vue";
 
-defineProps(
+let props = defineProps(
     {
         dues: Object,
-        title: String
+        title: String,
+        client: Object,
+        type: String
     }
 )
+
+const balanceStyle = (type) => {
+    return type === "debt" ? 'negative-balance' : 'positive-balance'
+};
 </script>
 
 <template>
@@ -16,8 +22,8 @@ defineProps(
         <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
             <h5 class="mb-0">{{ title }}</h5>
             <div>
-                <a href="#" class="btn btn-sm btn-light me-2"><i class="bi bi-plus"></i> Add</a>
-                <a href="#" class="btn btn-sm btn-light"><i class="bi bi-arrow-clockwise"></i> Refresh</a>
+                <CreateButton :create-url="`/${type}s/create?client_id=${client.id}`"
+                              :label="`Add ${type}`"></CreateButton>
             </div>
         </div>
         <div class="card-body">
@@ -29,10 +35,9 @@ defineProps(
                         <small class="text-muted">{{ due.date }}</small>
                     </div>
                     <div>
-                      <span class="me-2">{{ $filters.currency(due.amount) }}</span>
-                        <ViewButton url="#"></ViewButton>
-                        <EditButton url="#"></EditButton>
-                        <DeleteButton url="#"></DeleteButton>
+                        <span class="me-4" :class="balanceStyle(type)">{{ $filters.currency(due.amount) }}</span>
+                        <ViewButton :url="`/${type}s/${due.id}`" class="me-2"></ViewButton>
+                        <DeleteButton :url="`/${type}s/${due.id}`" :item="type"></DeleteButton>
                     </div>
                 </li>
             </ul>

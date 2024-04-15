@@ -18,7 +18,7 @@ let form = useForm({
 
 </script>
 
-<template>
+<template>d
     <Head title="New Client"></Head>
     <PageHead icon="fa-solid fa-square-plus" title="New Client"></PageHead>
     <form @submit.prevent="form.post('/clients')">
@@ -50,7 +50,7 @@ let form = useForm({
                 </div>
             </div>
         </div>
-        <div class="row mt-3">
+        <div class="row mt-4">
             <div class="col-6 d-flex">
                 <SubmitButton :form label="Save" icon="fa-solid fa-floppy-disk" class="flex-grow-1 me-2"></SubmitButton>
                 <CloseButton url="/clients" class="flex-grow-1"></CloseButton>
