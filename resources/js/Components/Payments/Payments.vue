@@ -30,7 +30,7 @@ let props = defineProps({
                 </th>
                 <td>{{ payment.reference_number }}</td>
                 <td>{{ payment.client }}</td>
-                <td>{{ $filters.currency(payment.amount) }}</td>
+                <td><span class="positive-balance">{{ $filters.currency(payment.amount) }}</span></td>
                 <td>{{ payment.date }}</td>
                 <td class="text-center">
                     <ViewButton :url="`/payments/${payment.id}`"></ViewButton>

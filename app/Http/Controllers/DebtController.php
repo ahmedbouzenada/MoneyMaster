@@ -76,6 +76,6 @@ class DebtController extends Controller
     {
         $client = $debt->client;
         $debt->delete();
-        return redirect()->route('clients.show', $client)->with('success', 'Debt deleted successfully');
+        return to_route('clients.show', $client->id)->with('success', 'Debt deleted successfully.');
     }
 }

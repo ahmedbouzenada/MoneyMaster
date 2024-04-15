@@ -22,6 +22,7 @@ class PaymentResource extends JsonResource
             'amount' => $this->amount,
             'payment_method' => $this->payment_method,
             'date' => $this->date,
+            'description' => $this->description,
         ];
     }
 }

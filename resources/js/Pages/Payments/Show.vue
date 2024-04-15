@@ -33,6 +33,12 @@
                             <p class="card-text text-muted mb-0">{{ payment.date }}</p>
                         </div>
                     </div>
+                    <div class="col-md-6" v-if="payment.description">
+                        <div class="d-flex flex-column">
+                            <h5 class="card-title mb-2">Description</h5>
+                            <p class="card-text text-muted mb-0">{{ payment.description }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -47,7 +53,6 @@
 
 <script setup>
 import {Head} from "@inertiajs/vue3";
-import CloseButton from "@/Components/Shared/Buttons/Links/CloseButton.vue";
 import {defineProps} from 'vue';
 import ReturnButton from "@/Components/Shared/Buttons/Links/ReturnButton.vue";
 

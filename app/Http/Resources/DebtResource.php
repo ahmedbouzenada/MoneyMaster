@@ -21,6 +21,7 @@ class DebtResource extends JsonResource
             'reference_number' => $this->reference_number,
             'amount' => $this->amount,
             'date' => $this->date,
+            'description' => $this->description
         ];
     }
 }

@@ -8,7 +8,9 @@ let props = defineProps(
         dues: Object,
         title: String,
         client: Object,
-        type: String
+        type: String,
+        icon: String,
+
     }
 )
 
@@ -20,7 +22,7 @@ const balanceStyle = (type) => {
 <template>
     <div class="card">
         <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">{{ title }}</h5>
+            <h5 class="mb-0"><i :class="`${icon} me-2`"></i>{{ title }}</h5>
             <div>
                 <CreateButton :create-url="`/${type}s/create?client_id=${client.id}`"
                               :label="`Add ${type}`"></CreateButton>

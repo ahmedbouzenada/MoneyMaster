@@ -17,7 +17,7 @@
                     <div class="col-md-6">
                         <div class="d-flex flex-column">
                             <h5 class="card-title mb-2">Amount</h5>
-                            <p class="card-text positive-balance font-weight-bold mb-0">
+                            <p class="card-text negative-balance font-weight-bold mb-0">
                                 {{ $filters.currency(debt.amount) }}</p>
                         </div>
                     </div>
@@ -25,6 +25,12 @@
                         <div class="d-flex flex-column">
                             <h5 class="card-title mb-2">Date</h5>
                             <p class="card-text text-muted mb-0">{{ debt.date }}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6" v-if="debt.description">
+                        <div class="d-flex flex-column">
+                            <h5 class="card-title mb-2">Description</h5>
+                            <p class="card-text text-muted mb-0">{{ debt.description }}</p>
                         </div>
                     </div>
                 </div>

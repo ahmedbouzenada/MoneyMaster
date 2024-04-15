@@ -18,8 +18,10 @@ defineProps(
             <ClientInfo :client></ClientInfo>
         </div>
         <div class="col">
-            <ClientDues title="Payments" type="payment" :client="client" :dues="client.payments"></ClientDues>
-            <ClientDues title="Debts" type="debt" :client="client" class="mt-4" :dues="client.debts"></ClientDues>
+            <ClientDues title="Payments" type="payment" :client="client" :dues="client.payments"
+                        icon="fa-solid fa-money-bill-wave"></ClientDues>
+            <ClientDues title="Debts" type="debt" :client="client" class="mt-4" :dues="client.debts"
+                        icon="fa-solid fa-hand-holding-dollar"></ClientDues>
             <div class="d-grid mt-4">
                 <CloseButton url="/clients"></CloseButton>
             </div>
