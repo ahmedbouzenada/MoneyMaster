@@ -18,7 +18,7 @@ let form = useForm({
 
 </script>
 
-<template>d
+<template>
     <Head title="New Client"></Head>
     <PageHead icon="fa-solid fa-square-plus" title="New Client"></PageHead>
     <form @submit.prevent="form.post('/clients')">
